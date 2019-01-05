@@ -31,9 +31,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'https://github.com/christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-run-interactive'
 
-" [4] search filesystem with fzf
+" [4] search filesystem with fzf"
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " [5] Code highlighting and linting
 Plug 'scrooloose/syntastic' "Run linters and display errors etc
