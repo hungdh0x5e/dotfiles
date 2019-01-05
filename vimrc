@@ -7,7 +7,7 @@ set nocompatible
 " Leader - ( Spacebar )
 let mapleader = " "
 
-set backspace=indent,eol,start   " Backspace deletes like most programs in insert mode
+set backspace=indent,eol,start
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
@@ -24,8 +24,8 @@ set autoread      " Reload files changed outside vim
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
 
-"Set default font in mac vim and gvim
-set guifont=Inconsolata\ for\ Powerline:h24
+" Set default font in mac vim and gvim
+set guifont=Inconsolata\ for\ Powerline:h16
 set cursorline    " highlight the current line
 set visualbell    " stop that ANNOYING beeping
 set wildmenu
@@ -88,19 +88,19 @@ set sidescrolloff=15
 set sidescroll=1
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
-set rnu
-function! ToggleNumbersOn()
-    set nu!
-    set rnu
-endfunction
-function! ToggleRelativeOn()
-    set rnu!
-    set nu
-endfunction
-autocmd FocusLost * call ToggleRelativeOn()
-autocmd FocusGained * call ToggleRelativeOn()
-autocmd InsertEnter * call ToggleRelativeOn()
-autocmd InsertLeave * call ToggleRelativeOn()
+" set rnu
+" function! ToggleNumbersOn()
+"     set nu!
+"     set rnu
+" endfunction
+" function! ToggleRelativeOn()
+"     set rnu!
+"     set nu
+" endfunction
+" autocmd FocusLost * call ToggleRelativeOn()
+" autocmd FocusGained * call ToggleRelativeOn()
+" autocmd InsertEnter * call ToggleRelativeOn()
+" autocmd InsertLeave * call ToggleRelativeOn()
 
 "Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>
@@ -168,7 +168,7 @@ nnoremap \ :Ag<SPACE>
 " Ag will search from project root
 let g:ag_working_path_mode="r"
 
-"Map Ctrl + S to save in any mode
+" Map Ctrl + S to save in any mode
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
@@ -204,7 +204,7 @@ au FocusLost,WinLeave * :silent! wa
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-"update dir to current file
+" update dir to current file
 autocmd BufEnter * silent! cd %:p:h
 
 augroup vimrcEx
