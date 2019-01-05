@@ -1,0 +1,65 @@
+# Unix
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls'
+alias ll='ls -al'
+alias lh='ls -Alh'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# Pretty print the path
+alias path="echo $PATH | tr -s ':' '\n'"
+
+# Navigation
+alias zshconfig="code ~/.zshrc"
+
+alias wefit="cd ~/workspace/Onaclover/wefit.vn"
+alias wefit-fish="cd ~/workspace/Onaclover/fish"
+alias wefit-crm="cd ~/workspace/Onaclover/wefit-crm-v2"
+alias wefit-personal="cd /Users/hungdh/workspace/Onaclover/hungdh.dev/personal"
+alias wefit-admin="cd ~/workspace/Onaclover/firebase-admin"
+
+alias dcu="docker-compose up"
+alias dcub="docker-compose up --build"
+alias dck="docker-compose kill"
+alias dcw="docker-compose exec web bash"
+alias dcb="docker-compose exec db bash"
+
+# Uliti
+alias show-file='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hide-file='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias keyboard-disable='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
+alias keyboard-enable='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
+
+# For git
+alias gcob='git checkout $(git branch | fzf)'
+alias gcorb='git checkout --track $(git branch -r | fzf)'
+
+# Remote server
+alias crm-pro-remote="gcloud container clusters get-credentials wefit-production --zone asia-southeast1-a --project wefit-e5f99 && fish=\$(kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}') && kubectl exec \$fish -it sh -c fish-chart"
+alias crm-sta-remote="gcloud container clusters get-credentials wefit-staging --zone asia-southeast1-a --project wefit-e5f99 && fish=\$(kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}') && kubectl exec \$fish -it sh -c fish-chart"
+alias cms-pro-remote="gcloud container clusters get-credentials wefit-production --zone asia-southeast1-a --project wefit-e5f99 && cms=\$(kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}') && kubectl exec \$cms -it sh -c cms-chart"
+alias cms-sta-remote="gcloud container clusters get-credentials wefit-staging --zone asia-southeast1-a --project wefit-e5f99 && cms=\$(kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}') && kubectl exec \$cms -it sh -c cms-chart"
+# Go to the root of a project (git root)
+alias root='cd $(git rev-parse --show-cdup)'
+
+# This kills a process that slows down my Mac every once in a while...??
+alias killn="ps -ax | grep notifyd | head -1 | awk '{print \$1}' | sudo xargs kill"
+
+# kill a rogue process running on a specific port
+# usage: `killp 3000`
+killp() { lsof -n "-i4TCP:${1:-3002}" | grep LISTEN | tr -s ' ' | cut -f 2 -d ' ' | xargs kill -9}
+
+# Do all of my login stuff for cf
+alias cfgo="cf login -a $CFAPI -u $CFEMAIL -p $CFPASSWORD -o $CFEMAIL -s dev && npm start"
+
+# Start a browsersync server watching the current directory
+bsync() { browser-sync start --files "./**" --server; }
+# Start a browsersync server and proxy 3000 (or pass a different number to proxy something else, IE: bsyncp 8000 for localhost:8000)
+bsyncp() { browser-sync start --files "./**" --proxy "localhost:${1:-3000}" --no-open; }
