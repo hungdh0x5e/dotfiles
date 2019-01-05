@@ -1,0 +1,12 @@
+plugins=(
+  git
+  osx
+  ruby
+  rails
+  git-flow
+  sublime
+  git-extras
+  web-search
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
