@@ -228,7 +228,7 @@ if !exists('g:deoplete#omni#input_patterns')
 endif
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" [10]
+" [11]
 " vim-ruby
 let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_assignment_style = 'variable'

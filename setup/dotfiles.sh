@@ -1,21 +1,21 @@
 #!/bin/sh
 source ~/dotfiles/setup/functions.sh
 
-
 dotfiles=(
-zsh
-bin
-aliases
-agignore
-gitconfig
-gitmessage
-gvimrc
-tmux.conf
-zshenv
-zshrc
-vimrc.bundles
-vimrc
-vim
+  zsh
+  bin
+  aliases
+  gitconfig
+  gitmessage
+  gvimrc
+  tmux.conf
+  zshenv
+  zshrc
+  vimrc.bundles
+  vimrc
+  vim
+  rspec
+  psqlrc
 )
 
 nvimrcpath="~/.config/nvim/init.vim"
@@ -47,4 +47,3 @@ for i in ${dotfiles[@]} ; do
     ln -s ~/dotfiles/$i ~/.$i
   fi
 done
-
