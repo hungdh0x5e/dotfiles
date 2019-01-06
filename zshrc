@@ -1,4 +1,6 @@
 # load custom executable functions
+export TERM="xterm-256color"
+
 for function in ~/.zsh/functions/*; do
   source $function
 done
