@@ -13,7 +13,7 @@ Manually Install latest (non beta) Xcode from the [app store](https://developer.
    `git clone git@github.com:hungdh0x5e/dotfiles.git ~/dotfiles && cd ~/dotfiles/setup && chmod a+x setup.sh && ./setup.sh`
 
 ## Finishing touches
-  1. open `tmux` and install plugins: `CTRL + A, I`
+  1. open `tmux` and install plugins: `CTRL + A, I`. For first time, you need clone [tpm-plugin](https://github.com/tmux-plugins/tpm/issues/17#issuecomment-119260843)
   1. open `nvim` and run `:PlugInstall` and `:UpdateRemotePlugins`
   1. Register Divvy and add any hotkeys for window management
   1. Change key repeat rate / delay to fast/short in keyboard preferences
