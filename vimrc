@@ -58,15 +58,14 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set textwidth=100
 " set formatoptions=cq
 set formatoptions=qrn1
-set wrapmargin=0
-set colorcolumn=+1
-
+set wrapmargin=1
+" set colorcolumn=+1
 " Numbers
 set number
 set numberwidth=5
 
 " Open new split panes to right and bottom, which feels more natural
-" set splitbelow
+set splitbelow
 set splitright
 
 " Auto resize Vim splits to active split
