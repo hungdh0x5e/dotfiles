@@ -147,11 +147,11 @@ endif
 filetype plugin indent on
 
 """ SYSTEM CLIPBOARD COPY & PASTE SUPPORT
-set pastetoggle=<F2> "F2 before pasting to preserve indentation
+" set pastetoggle=<F2> "F2 before pasting to preserve indentation
 "Copy paste to/from clipboard
-vnoremap <C-c> "*y
-map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+" vnoremap <C-c> "*y
+" map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+" map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
 """ MORE AWESOME HOTKEYS
 "
@@ -169,9 +169,9 @@ nnoremap \ :Ag<SPACE>
 let g:ag_working_path_mode="r"
 
 " Map Ctrl + S to save in any mode
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+" noremap <silent> <C-S>          :update<CR>
+" vnoremap <silent> <C-S>         <C-C>:update<CR>
+" inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Quickly close windows
 nnoremap <leader>x :x<cr>
