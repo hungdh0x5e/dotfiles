@@ -144,8 +144,6 @@ nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd
 
 " [4]
 " Fzf plugin
-nnoremap <c-p> :Files<CR>
-nnoremap <c-b> :Buffer<CR>
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>b :Buffers<CR>
