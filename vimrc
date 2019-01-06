@@ -25,7 +25,7 @@ set autoread      " Reload files changed outside vim
 au FocusGained,BufEnter * :silent! !
 
 " Set default font in mac vim and gvim
-set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=Inconsolata\ for\ Powerline:h24
 set cursorline    " highlight the current line
 set visualbell    " stop that ANNOYING beeping
 set wildmenu
@@ -34,7 +34,7 @@ set wildmode=list:longest,full
 "Allow usage of mouse in iTerm
 set ttyfast
 set mouse=a
-" set ttymouse=xterm2
+set ttymouse=xterm2
 
 " Make searching better
 set gdefault      " Never have to type /g at the end of search / replace again
@@ -70,10 +70,10 @@ set numberwidth=5
 set splitright
 
 " Auto resize Vim splits to active split
-set winwidth=104
-set winheight=5
-set winminheight=5
-set winheight=999
+" set winwidth=104
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 "HTML Editing
 set matchpairs+=<:>
@@ -172,8 +172,6 @@ let g:ag_working_path_mode="r"
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
-" Also map leader + s
-map <leader>s <C-S>
 
 " Quickly close windows
 nnoremap <leader>x :x<cr>
@@ -202,7 +200,7 @@ nnoremap <leader><leader> <c-^>
 au FocusLost,WinLeave * :silent! wa
 
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+" autocmd VimResized * :wincmd =
 
 " update dir to current file
 autocmd BufEnter * silent! cd %:p:h
