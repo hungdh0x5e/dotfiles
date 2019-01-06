@@ -24,9 +24,6 @@ sudo systemsetup -setrestartfreeze on
 fancy_echo_line "Keyboard - Enable keyboard access for all controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-fancy_echo_line "Keyboard - Set a fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0
-
 fancy_echo_line "Trackpad - Map bottom right corner to right-click"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
