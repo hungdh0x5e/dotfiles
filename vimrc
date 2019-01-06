@@ -25,7 +25,7 @@ set autoread      " Reload files changed outside vim
 au FocusGained,BufEnter * :silent! !
 
 " Set default font in mac vim and gvim
-set guifont=Inconsolata\ for\ Powerline:h24
+set guifont=Inconsolata\ for\ Powerline:h16
 set cursorline    " highlight the current line
 set visualbell    " stop that ANNOYING beeping
 set wildmenu
@@ -70,10 +70,10 @@ set numberwidth=5
 set splitright
 
 " Auto resize Vim splits to active split
-" set winwidth=104
-" set winheight=5
-" set winminheight=5
-" set winheight=999
+set winwidth=104
+set winheight=5
+set winminheight=5
+set winheight=999
 
 "HTML Editing
 set matchpairs+=<:>
@@ -88,19 +88,19 @@ set sidescrolloff=15
 set sidescroll=1
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
-" set rnu
-" function! ToggleNumbersOn()
-"     set nu!
-"     set rnu
-" endfunction
-" function! ToggleRelativeOn()
-"     set rnu!
-"     set nu
-" endfunction
-" autocmd FocusLost * call ToggleRelativeOn()
-" autocmd FocusGained * call ToggleRelativeOn()
-" autocmd InsertEnter * call ToggleRelativeOn()
-" autocmd InsertLeave * call ToggleRelativeOn()
+set rnu
+function! ToggleNumbersOn()
+    set nu!
+    set rnu
+endfunction
+function! ToggleRelativeOn()
+    set rnu!
+    set nu
+endfunction
+autocmd FocusLost * call ToggleRelativeOn()
+autocmd FocusGained * call ToggleRelativeOn()
+autocmd InsertEnter * call ToggleRelativeOn()
+autocmd InsertLeave * call ToggleRelativeOn()
 
 "Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>
@@ -192,7 +192,6 @@ inoremap <S-Tab> <c-n>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-
 " AUTOCOMMANDS - Do stuff
 
 " Save whenever switching windows or leaving vim. This is useful when running

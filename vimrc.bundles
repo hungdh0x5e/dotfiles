@@ -104,13 +104,16 @@ call plug#end()
 " [1]
 " Color scheme
 syntax enable
-" let g:solarized_termcolors=16
+if (has("termguicolors"))
+  set termguicolors
+endif
+let g:solarized_termcolors=16
 let g:colarized_termtrans = 1
 let g:solarized_termcolors=256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme solarized
 set background=dark
+colorscheme solarized
 " Allow powerline symbols to show up
 let g:airline_powerline_fonts = 1
 
