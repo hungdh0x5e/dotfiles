@@ -75,10 +75,10 @@ set splitbelow
 set splitright
 
 " Auto resize Vim splits to active split
-set winwidth=104
-set winheight=5
-set winminheight=5
-set winheight=999
+" set winwidth=104
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 "HTML Editing
 set matchpairs+=<:>
