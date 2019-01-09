@@ -80,6 +80,9 @@ set splitright
 " set winminheight=5
 " set winheight=999
 
+" Automatically rebalance windows
+autocmd VimResized * :wincmd =
+
 "HTML Editing
 set matchpairs+=<:>
 
