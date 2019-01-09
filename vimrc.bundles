@@ -103,13 +103,9 @@ call plug#end()
 
 " [1]
 " Color scheme
-syntax enable
-if (has("termguicolors"))
-  set termguicolors
-endif
-let g:solarized_termcolors=16
+syntax on
+" let g:solarized_termcolors=16
 let g:colarized_termtrans = 1
-let g:solarized_termcolors=256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 set background=dark
