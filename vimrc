@@ -22,13 +22,17 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set autoread      " Reload files changed outside vim
 set clipboard=unnamed
-
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
 
 " Set default font in mac vim and gvim
 set guifont=Inconsolata\ for\ Powerline:h16
 set cursorline    " highlight the current line
+" highlight the number current line
+hi CursorLineNR cterm=bold ctermbg=NONE ctermfg=red
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold ctermbg=NONE ctermfg=red
+augroup END
 set visualbell    " stop that ANNOYING beeping
 set wildmenu
 set wildmode=list:longest,full
