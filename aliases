@@ -19,6 +19,7 @@ alias path="echo $PATH | tr -s ':' '\n'"
 # Navigation
 alias zshconfig="code ~/.zshrc"
 
+alias dotfiles='cd ~/dotfiles'
 alias wefit="cd ~/workspace/Onaclover/wefit.vn"
 alias wefit-fish="cd ~/workspace/Onaclover/fish"
 alias wefit-crm="cd ~/workspace/Onaclover/wefit-crm-v2"
