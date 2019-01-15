@@ -6,7 +6,7 @@
   ui = auto
 [alias]
   aa = add --all
-	ci = commit -v
+  ci = commit -v
 
   # Commit all changes
   ca = !git add -A && git commit -av
@@ -15,7 +15,7 @@
   caa = !git add -A && git commit --amend -av
 
   # Switch to a branch, creating it if necessary
-	co = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  co = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
   # Rename local branch
   rn = "!f() { git branch -m $1; }; f"
@@ -44,11 +44,11 @@ aa
 
   current-branch = !sh -c 'git rev-parse --abbrev-ref HEAD' -
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
-	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+  dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-	pager = less -FMRiX
+  pager = less -FMRiX
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -60,13 +60,12 @@ aa
   smudge = git hawser smudge %f
   required = true
 [user]
-	name = Huy Hùng
-	email = huyhung1994@gmail.com 
+  name = Huy Hùng
+  email = huyhung1994@gmail.com
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[gitlab]
-  user = Huy Hùng
-  email = hungdh@onaclover.com
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[github]
+	user = hungdh0x5e

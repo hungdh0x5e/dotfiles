@@ -40,8 +40,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic' "Run linters and display errors etc
 " Plug 'benekastah/neomake' "Async Jobs (can use it instead of syntastic, but hard to setup)
 Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
-Plug 'jimmyhchan/dustjs.vim' "Highlighting for Dust
-Plug 'elmcast/elm-vim' "Highlighting for Elm
 
 " [6] Adds a ; at the end of a line by pressing <leader> ;
 Plug 'lfilho/cosco.vim'
@@ -85,6 +83,14 @@ Plug 'editorconfig/editorconfig-vim'
 
 " [11]
 Plug 'vim-ruby/vim-ruby'
+
+" [12]
+" Goto define fuction
+Plug 'universal-ctags/ctags'
+
+" [13]
+" Mapping key for Glog, cnext -> ]q, cprev -> [q
+Plug 'tpope/vim-unimpaired'
 
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
