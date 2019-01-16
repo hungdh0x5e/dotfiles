@@ -42,11 +42,17 @@ alias keyboard-enable='sudo kextload /System/Library/Extensions/AppleUSBTopCase.
 alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
 
+alias kube_production='kubectl config use-context gke_wefit-e5f99_asia-southeast1-a_wefit-production'
+alias kube_staging='kubectl config use-context gke_wefit-e5f99_asia-southeast1-a_wefit-staging'
+
+alias crm_pod="kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}'"
+alias cms_pod="kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}'"
+
 # Remote server
-alias crm-pro-remote="gcloud container clusters get-credentials wefit-production --zone asia-southeast1-a --project wefit-e5f99 && fish=\$(kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}') && kubectl exec \$fish -it sh -c fish-chart"
-alias crm-sta-remote="gcloud container clusters get-credentials wefit-staging --zone asia-southeast1-a --project wefit-e5f99 && fish=\$(kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}') && kubectl exec \$fish -it sh -c fish-chart"
-alias cms-pro-remote="gcloud container clusters get-credentials wefit-production --zone asia-southeast1-a --project wefit-e5f99 && cms=\$(kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}') && kubectl exec \$cms -it sh -c cms-chart"
-alias cms-sta-remote="gcloud container clusters get-credentials wefit-staging --zone asia-southeast1-a --project wefit-e5f99 && cms=\$(kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}') && kubectl exec \$cms -it sh -c cms-chart"
+alias crm-pro-remote="kube_production && fish=`crm_pod` && kubectl exec \$fish -it sh -c fish-chart"
+alias crm-sta-remote="kube_staging && fish=`crm_pod` && kubectl exec \$fish -it sh -c fish-chart"
+alias cms-pro-remote="kube_production && cms=`cms_pod` && kubectl exec \$cms -it sh -c cms-chart"
+alias cms-sta-remote="kube_staging && cms=`cms_pod` && kubectl exec \$cms -it sh -c cms-chart"
 # Go to the root of a project (git root)
 alias root='cd $(git rev-parse --show-cdup)'
 
