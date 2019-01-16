@@ -232,6 +232,9 @@ let g:gist_open_browser_after_post = 1
 
 " [8] Set Vim Wiki to my Dropbox directory
 let g:vimwiki_list = [{'path':'$HOME/Dropbox/vimwiki'}]
+" Configuration for instant-markdown
+let g:instant_markdown_autostart = 0
+map <Leader>md :InstantMarkdownPreview<CR>
 
 " [9]
 " Set ultisnips triggers
