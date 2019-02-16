@@ -48,7 +48,6 @@ pip3 install neovim
 brew install chrome-cli
 brew install git
 brew install hub
-brew install rbenv
 brew install ruby-build
 brew install imagemagick
 brew install heroku
@@ -59,7 +58,6 @@ brew install redis
 brew services start redis
 
 brew tap caskroom/cask
-brew cask install mongodb
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install github-desktop
@@ -76,9 +74,7 @@ brew cask install macdown
 brew cask install 1password
 
 fancy_echo "Installing Misc Apps"
-brew cask install discord
 brew cask install slack
-brew cask install disk-inventory-x
 brew cask install vlc
 brew cask install spotify
 brew cask install steam
