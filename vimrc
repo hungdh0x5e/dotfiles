@@ -22,6 +22,7 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set autoread      " Reload files changed outside vim
 set clipboard=unnamed
+
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
 

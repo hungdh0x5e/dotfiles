@@ -1,4 +1,5 @@
 "
+"
 " :so % to refresh .vimrc after making changes
 " :PlugInstall to install new stuff
 " :PlugUpdate to update to latest versions
@@ -73,8 +74,14 @@ Plug 'SirVer/ultisnips' | Plug 'justinj/vim-react-snippets' | Plug 'colbycheeze/
 Plug 'ervandew/supertab'
 " For YouCompleteMe, have you installed using:
 " ./install.py --tern-completer
-" Provides Async autocomplete with Tern
-Plug 'https://github.com/Shougo/deoplete.nvim'
+" Provides Async autocomplete with T
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " IDE like code intelligence for Javascript
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
@@ -91,6 +98,14 @@ Plug 'universal-ctags/ctags'
 " [13]
 " Mapping key for Glog, cnext -> ]q, cprev -> [q
 Plug 'tpope/vim-unimpaired'
+
+"" [14]
+" Vim highlight for Vue
+Plug 'posva/vim-vue'
+
+" [15]
+" Vim highlight for Vue
+Plug 'terryma/vim-multiple-cursors'
 
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
@@ -288,3 +303,12 @@ let g:EditorConfig_exec_path = findfile('.editorconfig', '.;')
 " " Run commands that require an interactive shell
 " nnoremap <Leader>r :RunInInteractiveShell<space>
 "
+
+" [14]
+" Disable pre processor vue highlighting
+let g:vue_disable_pre_processors=1
+
+" [15]
+" multiple cursor
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
