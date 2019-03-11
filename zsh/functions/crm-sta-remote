@@ -1,0 +1,5 @@
+function crm-sta-remote() {
+  kubectl config use-context staging
+  fish=`crm_pod`
+  kubectl exec $fish -it sh -c fish-chart
+}

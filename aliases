@@ -42,17 +42,13 @@ alias keyboard-enable='sudo kextload /System/Library/Extensions/AppleUSBTopCase.
 alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
 
-alias kube_production='kubectl config use-context gke_wefit-e5f99_asia-southeast1-a_wefit-production'
-alias kube_staging='kubectl config use-context gke_wefit-e5f99_asia-southeast1-a_wefit-staging'
+alias kube_production='kubectl config use-context production'
+alias kube_staging='kubectl config use-context staging'
 
-alias crm_pod="kubectl get pod -l app=crm -o jsonpath='{.items[0].metadata.name}'"
-alias cms_pod="kubectl get pod -l app=cms -o jsonpath='{.items[1].metadata.name}'"
+alias crm_pod="kubectl get pods --field-selector=status.phase=Running -l app=crm -o jsonpath='{.items[0].metadata.name}'"
+alias cms_pod="kubectl get pods --field-selector=status.phase=Running -l app=cms -o jsonpath='{.items[1].metadata.name}'"
 
-# Remote server
-alias crm-pro-remote="kube_production && fish=`crm_pod` && kubectl exec \$fish -it sh -c fish-chart"
-alias crm-sta-remote="kube_staging && fish=`crm_pod` && kubectl exec \$fish -it sh -c fish-chart"
-alias cms-pro-remote="kube_production && cms=`cms_pod` && kubectl exec \$cms -it sh -c cms-chart"
-alias cms-sta-remote="kube_staging && cms=`cms_pod` && kubectl exec \$cms -it sh -c cms-chart"
+
 # Go to the root of a project (git root)
 alias root='cd $(git rev-parse --show-cdup)'
 
