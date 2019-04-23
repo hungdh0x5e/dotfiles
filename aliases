@@ -44,6 +44,7 @@ alias gcorb='git checkout --track $(git branch -r | fzf)'
 
 alias kube_production='kubectl config use-context production'
 alias kube_staging='kubectl config use-context staging'
+alias kube_nightly='kubectl config use-context nightly'
 
 alias crm_pod="kubectl get pods --field-selector=status.phase=Running -l app=crm -o jsonpath='{.items[0].metadata.name}'"
 alias cms_pod="kubectl get pods --field-selector=status.phase=Running -l app=cms -o jsonpath='{.items[1].metadata.name}'"

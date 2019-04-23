@@ -1,0 +1,5 @@
+function cms-nightly-remote() {
+  kubectl config use-context nightly
+  cms=`cms_pod`
+  kubectl exec $cms -it sh -c cms-chart
+}

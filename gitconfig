@@ -61,7 +61,9 @@ aa
   required = true
 [user]
   name = Huy Hùng
-  email = huyhung1994@gmail.com
+	email = huyhung1994@gmail.com
+[includeIf "gitdir:~/workspace/Onaclover/"]
+  path = ~/workspace/Onaclover/.gitconfig
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -69,3 +71,5 @@ aa
   required = true
 [github]
 	user = hungdh0x5e
+[diff "sopsdiffer"]
+	textconv = sops -d
