@@ -75,13 +75,13 @@ Plug 'ervandew/supertab'
 " For YouCompleteMe, have you installed using:
 " ./install.py --tern-completer
 " Provides Async autocomplete with T
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 " IDE like code intelligence for Javascript
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 
@@ -113,6 +113,9 @@ Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-commentary'
 noremap <Leader>/ :Commentary<CR>
+
+" post install (yarn install | npm install)
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 """ TODO / Plugins to evaluate
 " Figure out how to change matchit to ALSO use <tab>
@@ -174,6 +177,17 @@ nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd
 
 " [4]
 " Fzf plugin
+" Search find in root project
+function! s:find_project_root()
+  let nerd_root = g:NERDTree.ForCurrentTab().getRoot().path.str()
+  let git_root = system('git -C '.shellescape(nerd_root).' rev-parse --show-toplevel 2> /dev/null')[:-2]
+  if strlen(git_root)
+    return git_root
+  endif
+  return nerd_root
+endfunction
+command! ProjectFiles execute 'Files' s:find_project_root()
+
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>b :Buffers<CR>
@@ -185,7 +199,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -262,11 +275,11 @@ let g:UltiSnipsEditSplit="vertical"
 " [10] make YCM compatible with UltiSnips (using supertab)
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" let g:deoplete#enable_at_startup = 1
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " [11]
 " vim-ruby
