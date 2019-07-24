@@ -180,7 +180,7 @@ nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd
 " Search find in root project
 function! s:find_project_root()
   let nerd_root = g:NERDTree.ForCurrentTab().getRoot().path.str()
-  let git_root = system('git -C '.shellescape(nerd_root).' rev-parse --show-toplevel 2> /dev/null')[:-2]
+  let git_root = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
   if strlen(git_root)
     return git_root
   endif
@@ -188,8 +188,8 @@ function! s:find_project_root()
 endfunction
 command! ProjectFiles execute 'Files' s:find_project_root()
 
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
+nmap <Leader>F :GFiles<CR>
+nmap <Leader>f :ProjectFiles<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>h :History<CR>
 nmap <Leader>t :BTags<CR>
