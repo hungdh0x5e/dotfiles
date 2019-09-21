@@ -1,5 +1,5 @@
 function cms-prod-remote() {
   kubectl config use-context production
-  fish=`cms_pod`
-  kubectl exec $fish -it sh -c cms-chart
+  cms=`cms_pod`
+  kubectl exec $cms -it bash -c cms-chart
 }
