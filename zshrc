@@ -66,3 +66,9 @@ if [ -f '/Users/hungdh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hungdh/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hungdh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hungdh/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+# export FZF_DEFAULT_COMMAND='rg --type f'
+#
+export LC_ALL=en_US.UTF-8
