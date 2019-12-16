@@ -28,6 +28,7 @@ brew install zsh-completions
 brew install bash
 brew install bash-completion
 brew install fzf
+brew install fd
 brew install the_silver_searcher
 brew install wget
 brew install watchman # needed for jest --watch
