@@ -24,6 +24,8 @@ nvimpath="~/.config/nvimrc"
 fancy_echo "Backup current config"
 today=`date +%Y%m%d`
 for i in ${dotfiles[@]} ; do
+  fancy_echo "Backup config ${i}"
+
   if [ "vimrc" == "$i" ]; then
     [ -e $nvimrcpath ] && [ ! -L $nvimrcpath ] && mv $nvimrcpath $nvimrcpath.bak.$today ;
     [ -L $nvimrcpath ] && unlink $nvimrcpath ;
@@ -39,6 +41,8 @@ done
 
 fancy_echo "Symlinking dotfiles"
 for i in ${dotfiles[@]} ; do
+  fancy_echo "Symlinking dotfile ${i}"
+
   if [ "vimrc" == "$i" ]; then
     ln -s ~/dotfiles/vimrc $nvimrcpath
   elif [ "vim" == "$i" ]; then

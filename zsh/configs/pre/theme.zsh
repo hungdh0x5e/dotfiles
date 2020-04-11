@@ -1,12 +1,10 @@
-export ZSH=/Users/hungdh/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 plugins=(
   git
   osx
   ruby
-  rails
   git-flow
-  sublime
   git-extras
   web-search
   zsh-autosuggestions
