@@ -42,6 +42,8 @@ curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bas
 
 git clone git@github.com:powerline/fonts.git ~/fonts-delete && ~/fonts-delete/install.sh && rm -rf ~/fonts-delete
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
 # Install nerd-font
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
+brew cask install font-source-code-pro
