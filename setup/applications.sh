@@ -66,10 +66,10 @@ brew cask install dropbox
 brew cask install cloudapp
 brew cask install divvy
 brew cask install skype
-brew cask install caffeine
-brew cask install balsamiq-mockups
+#brew cask install caffeine
+#brew cask install balsamiq-mockups
 brew cask install screenflow
-brew cask install zoomus
+#brew cask install zoomus
 brew cask install postman
 brew cask install macdown
 brew cask install 1password
@@ -78,8 +78,8 @@ fancy_echo "Installing Misc Apps"
 brew cask install slack
 brew cask install vlc
 brew cask install spotify
-brew cask install steam
-brew cask install kindle
+#brew cask install steam
+#brew cask install kindle
 
 fancy_echo "Setting up Node with NVM"
 mkdir ~/.nvm
