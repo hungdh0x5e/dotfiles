@@ -36,3 +36,7 @@ Look through the shell scripts  in `setup` folder to see what programs are being
 
 **tmux configuration**
 - Set `prefix` to `Ctrl + Space`
+
+**Other**
+
+- Hombrew multi user setup: run script `brew-mult.sh`
