@@ -17,14 +17,9 @@ alias v="$VISUAL"
 alias path="echo $PATH | tr -s ':' '\n'"
 
 # Navigation
-alias zshconfig="code ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 
 alias dotfiles='cd ~/dotfiles'
-alias wefit="cd ~/workspace/Onaclover/wefit.vn"
-alias wefit-fish="cd ~/workspace/Onaclover/fish"
-alias wefit-crm="cd ~/workspace/Onaclover/wefit-crm-v2"
-alias wefit-personal="cd /Users/hungdh/workspace/Onaclover/hungdh.dev/personal"
-alias wefit-admin="cd ~/workspace/Onaclover/firebase-admin"
 
 alias dcu="docker-compose up"
 alias dcub="docker-compose up --build"
@@ -32,26 +27,16 @@ alias dck="docker-compose kill"
 alias dcw="docker-compose exec web bash"
 alias dcb="docker-compose exec db bash"
 
-# Uliti
-alias show-file='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hide-file='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias keyboard-disable='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
-alias keyboard-enable='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
-
 # For git
 alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
+# Go to the root of a project (git root)
+alias root='cd $(git rev-parse --show-cdup)'
 
+# Docker
 alias kube_production='kubectl config use-context production'
 alias kube_staging='kubectl config use-context staging'
 alias kube_nightly='kubectl config use-context nightly'
-
-alias crm_pod="kubectl get pods --field-selector=status.phase=Running -l app=crm -o jsonpath='{.items[0].metadata.name}'"
-alias cms_pod="kubectl get pods --field-selector=status.phase=Running -l app=cms -o jsonpath='{.items[1].metadata.name}'"
-
-
-# Go to the root of a project (git root)
-alias root='cd $(git rev-parse --show-cdup)'
 
 # This kills a process that slows down my Mac every once in a while...??
 alias killn="ps -ax | grep notifyd | head -1 | awk '{print \$1}' | sudo xargs kill"
@@ -60,10 +45,9 @@ alias killn="ps -ax | grep notifyd | head -1 | awk '{print \$1}' | sudo xargs ki
 # usage: `killp 3000`
 killp() { lsof -n "-i4TCP:${1:-3002}" | grep LISTEN | tr -s ' ' | cut -f 2 -d ' ' | xargs kill -9}
 
-# Do all of my login stuff for cf
-alias cfgo="cf login -a $CFAPI -u $CFEMAIL -p $CFPASSWORD -o $CFEMAIL -s dev && npm start"
+# Utilities for MacOS
+alias show-file='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hide-file='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias keyboard-disable='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
+alias keyboard-enable='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/'
 
-# Start a browsersync server watching the current directory
-bsync() { browser-sync start --files "./**" --server; }
-# Start a browsersync server and proxy 3000 (or pass a different number to proxy something else, IE: bsyncp 8000 for localhost:8000)
-bsyncp() { browser-sync start --files "./**" --proxy "localhost:${1:-3000}" --no-open; }
