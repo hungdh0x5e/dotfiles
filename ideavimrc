@@ -1,4 +1,4 @@
-set clipboard+=unnamed
+" Plugin
 set easymotion
 set surround
 set multiple-cursors
@@ -15,10 +15,10 @@ set number
 set relativenumber
 set scrolloff=3
 set history=100000
-set clipboard=unnamed
+set clipboard+=unnamed
 
 " clear the highlighted search result
-nnoremap <Leader>sc :nohlsearch<CR>
+nnoremap <Leader>, :nohlsearch<CR>
 
 nnoremap <Leader>fs :w<CR>
 
@@ -113,7 +113,6 @@ nnoremap <Leader>cv :action ChangeView<CR>
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
 nnoremap ga :action GotoAction<CR>
-" nnoremap gc :action GotoClass<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gf :action GotoFile<CR>
 nnoremap gi :action GotoImplementation<CR>
@@ -126,6 +125,8 @@ nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap <Leader>gi :action GotoImplementation<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
 nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
+nnoremap <Leader>ot :action ActivateTerminalToolWindow<CR>
 
 nnoremap <Leader>fp :action ShowFilePath<CR>
 
