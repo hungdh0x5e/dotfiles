@@ -16,6 +16,7 @@ dotfiles=(
   vim
   rspec
   psqlrc
+  ideavimrc
 )
 
 nvimrcpath="~/.config/nvim/init.vim"
