@@ -154,3 +154,4 @@ nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
 
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+set ideajoin
