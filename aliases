@@ -17,7 +17,9 @@ alias v="$VISUAL"
 alias path="echo $PATH | tr -s ':' '\n'"
 
 # Navigation
-alias zshconfig="nvim ~/.zshrc"
+alias zshconfig="e ~/.zshrc"
+alias zshlocal="e ~/.zshrc.local"
+alias zshsource="source ~/.zshrc"
 
 alias dotfiles='cd ~/dotfiles'
 
@@ -30,6 +32,7 @@ alias dcb="docker-compose exec db bash"
 # For git
 alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
+alias gbd='git branch -D $(git branch | fzf)'
 # Go to the root of a project (git root)
 alias root='cd $(git rev-parse --show-cdup)'
 
