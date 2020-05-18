@@ -129,7 +129,7 @@ syntax on
 let g:colarized_termtrans = 1
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-set background=dark
+set background=light
 colorscheme solarized
 " Allow powerline symbols to show up
 let g:airline_powerline_fonts = 1
