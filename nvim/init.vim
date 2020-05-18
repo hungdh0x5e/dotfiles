@@ -84,8 +84,8 @@ set number
 set numberwidth=5
 
 " Open new split panes to right and bottom, which feels more natural
-set splitbelow
 set splitright
+set splitbelow
 
 " Auto resize Vim splits to active split
 " set winwidth=104
@@ -215,7 +215,7 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 inoremap jk <ESC>
 
