@@ -156,5 +156,4 @@ Top 50 plugins slowing nvim's startup
 33        0.021   scss-syntax.vim
 34        0.020   vim-vue
 =====================================
-
 ```

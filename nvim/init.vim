@@ -71,7 +71,7 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:\ \ ,trail:·,nbsp:·
 
 " Make it obvious where 100 characters is
 set textwidth=100
@@ -87,6 +87,10 @@ set numberwidth=5
 set splitright
 set splitbelow
 
+set foldmethod=indent " Using `zc` to fold, `zo` to opened fold"
+set foldlevel=99
+
+let g:is_posix = 1
 " Auto resize Vim splits to active split
 " set winwidth=104
 " set winheight=5
@@ -216,7 +220,7 @@ nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
 " inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" inoremap <S-Tab> <c-n>
 inoremap jk <ESC>
 
 " Switch between the last two files

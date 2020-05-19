@@ -65,5 +65,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude ".git" .'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude ".git"'
 export LC_ALL=en_US.UTF-8
