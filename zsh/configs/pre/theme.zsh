@@ -1,4 +1,5 @@
 export ZSH=~/.oh-my-zsh
+ZSH_DISABLE_COMPFIX="true"
 
 plugins=(
   git

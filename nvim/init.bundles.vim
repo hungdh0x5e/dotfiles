@@ -73,12 +73,14 @@ Plug 'ervandew/supertab'
 " endif
 " IDE like code intelligence for Javascript
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Reads any .editorconfig files and sets spacing etc automatically
 Plug 'editorconfig/editorconfig-vim'
 
 " [11]
 Plug 'vim-ruby/vim-ruby'
+
 
 " [12]
 " Goto define fuction
@@ -160,7 +162,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 " Auto change root of the project
 let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_patterns = ['Cargo.tom', 'package.json', '.git/']
+let g:rooter_patterns = ['Cargo.tom', 'package.json', '.git/', 'Gemfile']
 let g:rooter_silent_chdir = 1
 
 " [3]
@@ -272,11 +274,14 @@ let g:UltiSnipsEditSplit="vertical"
 " [10] make YCM compatible with UltiSnips (using supertab)
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" let g:deoplete#enable_at_startup = 1
-" if !exists('g:deoplete#omni#input_patterns')
-"   let g:deoplete#omni#input_patterns = {}
-" endif
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" go-vim plugin specific commands
+" Also run `goimports` on your current file on every save
+" Might be be slow on large codebases, if so, just comment it out
+let g:go_fmt_command = "goimports"
+
+" Status line types/signatures.
+let g:go_auto_type_info = 1
 
 " [11]
 " vim-ruby
