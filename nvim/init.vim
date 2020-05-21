@@ -11,6 +11,7 @@ let mapleader = " "
 
 set encoding=UTF-8
 set backspace=indent,eol,start
+set hidden
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
@@ -81,7 +82,7 @@ set wrapmargin=1
 " set colorcolumn=+1
 " Numbers
 set number
-set numberwidth=5
+" set numberwidth=3
 
 " Open new split panes to right and bottom, which feels more natural
 set splitright
@@ -90,7 +91,7 @@ set splitbelow
 set foldmethod=indent " Using `zc` to fold, `zo` to opened fold"
 set foldlevel=99
 
-let g:is_posix = 1
+" let g:is_posix = 1
 " Auto resize Vim splits to active split
 " set winwidth=104
 " set winheight=5
@@ -164,7 +165,6 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Always use vertical diffs
 " Turn off whitespaces compare and folding in vimdiff
-set splitright
 silent! set splitvertical
 set diffopt+=iwhite
 set diffopt+=vertical
@@ -224,7 +224,7 @@ nnoremap <silent> <Down> :resize -5<cr>
 inoremap jk <ESC>
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 
 
 " AUTOCOMMANDS - Do stuff

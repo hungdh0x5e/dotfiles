@@ -3,6 +3,7 @@
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
+  "diagnostic.enableHighlightLineNumber": false,
   "languageserver": {
     "golang": {
       "command": "gopls",

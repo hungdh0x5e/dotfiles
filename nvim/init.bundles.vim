@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 """
 " [1]
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
@@ -34,6 +35,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 
 " [7]
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-denite'
 Plug 'Shougo/denite.nvim'
@@ -116,12 +118,28 @@ call plug#end()
 " [1]
 " Color scheme
 syntax on
+
+" For solarized
 " let g:solarized_termcolors=16
-let g:colarized_termtrans = 1
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-set background=light
-colorscheme solarized
+" let g:colarized_termtrans = 1
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" set background=light
+" colorscheme solarized
+
+set background=dark
+let g:gruvbox_sign_column="bg1"
+colorscheme gruvbox
+
+" Sign Column made by solarized color is strange, clear it.
+highlight clear SignColumn
+" vim-gitgutter will use Sign Column to set its color, reload it.
+" highlight GitGutterAdd ctermfg=green guifg=darkgreen
+" highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+" highlight GitGutterDelete ctermfg=red guifg=darkred
+" highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
+
+
 " Allow powerline symbols to show up
 let g:airline_powerline_fonts = 1
 
@@ -133,7 +151,7 @@ nmap <leader>gg :Ggrep
 nmap <leader>gl :Glog<cr>
 nmap <leader>gp :Git pull<cr>
 nmap <leader>gP :Git push<cr>
-nmap<leader>gs :Gstatus<cr>
+nmap <leader>gs :Gstatus<cr>
 nmap <leader>gw :Gbrowse<cr>
 
 " [2]
@@ -164,9 +182,6 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
-"
-"Open a tmux pane with Node
-nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'node'}<cr>
 
 " [5]
 " Setup for NEOMAKE plugin ~~~~~~~
@@ -266,20 +281,29 @@ map <Leader>md :InstantMarkdownPreview<CR>
 " let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
-" vim-go plugin specific commands
-" Also run `goimports` on your current file on every save
-" Might be be slow on large codebases, if so, just comment it out
-let g:go_fmt_command = "goimports"
+" ------------------- vim-go.vim configuration --------------------
+" use golang language server
+" let g:go_fmt_command = "goimports"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
+" Highlight more info
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+" highlight same variable in view
+let g:go_auto_sameids = 0
+" show type info in statusbar
+let g:go_auto_type_info = 1
+" disable gd mapping of vim-go
 let g:go_def_mapping_enabled = 0
 let g:go_code_completion_enabled = 0
-
-" Status line types/signatures.
-let g:go_auto_type_info = 1
+" -------------------- vim-go.vim configuration finished --------------------
 
 " [11]
 " vim-ruby
@@ -344,10 +368,12 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=yes
+set signcolumn=auto
 
 let g:coc_status_error_sign=" "
 let g:coc_status_warning_sign=" "
+highlight CocErrorSign ctermfg=red  guifg=bg1
+highlight CocWarningSign ctermfg=brown  guifg=bg1
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -364,7 +390,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-s> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -547,5 +573,5 @@ endfunction
 nnoremap \ :Denite grep<CR>
 nnoremap <Leader>pf :Denite file/rec<CR>
 nnoremap <Leader>pr :Denite file/old buffer<CR>
-nnoremap <C-o> :Denite outline<CR>
+" nnoremap <C-o> :Denite outline<CR>
 map * :Denite -resume -refresh<CR>
