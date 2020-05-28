@@ -79,6 +79,7 @@ set textwidth=100
 " set formatoptions=cq
 set formatoptions=qrn1
 set wrapmargin=1
+set wrap linebreak nolist
 " set colorcolumn=+1
 " Numbers
 set number

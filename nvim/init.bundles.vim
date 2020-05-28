@@ -11,6 +11,7 @@ Plug 'endel/vim-github-colorscheme'
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'tpope/vim-fugitive' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
 ""
 
 """ Some ESSENTIAL IDE like plugins for Vim
@@ -153,6 +154,11 @@ nmap <leader>gp :Git pull<cr>
 nmap <leader>gP :Git push<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gw :Gbrowse<cr>
+
+" For tagbar
+" nnoremap <C-l> :TagbarToggle<cr>
+nmap <F8> :TagbarToggle<CR>
+
 
 " [2]
 map - :NERDTreeToggle<cr>
