@@ -36,8 +36,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 
 " [7]
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-denite'
 Plug 'Shougo/denite.nvim'
 
@@ -69,7 +69,6 @@ Plug 'SirVer/ultisnips' | Plug 'justinj/vim-react-snippets' | Plug 'colbycheeze/
 
 " IDE like code intelligence for Javascript
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Reads any .editorconfig files and sets spacing etc automatically
 Plug 'editorconfig/editorconfig-vim'
@@ -287,7 +286,7 @@ map <Leader>md :InstantMarkdownPreview<CR>
 " let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
-" ------------------- vim-go.vim configuration --------------------
+" " ------------------- vim-go.vim configuration --------------------
 " use golang language server
 " let g:go_fmt_command = "goimports"
 let g:go_def_mode='gopls'
@@ -299,8 +298,9 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
+let g:go_highlight_operators = 0
+let g:go_highlight_structs = 0
+let g:go_highlight_interfaces = 0
 let g:go_highlight_types = 1
 " highlight same variable in view
 let g:go_auto_sameids = 0
@@ -338,11 +338,6 @@ endif
 "set up path to editorconfig
 let g:EditorConfig_exec_path = findfile('.editorconfig', '.;')
 
-" Not sure what the below code does...look into Tern docs etc and figure it out?
-" Found this snippet on a forum post that says it gets everything working
-" https://github.com/Valloric/YouCompleteMe/issues/570
-" autocmd FileType javascript setlocal omnifunc=tern#Complete
-
 " " Run commands that require an interactive shell
 " nnoremap <Leader>r :RunInInteractiveShell<space>
 "
@@ -374,12 +369,26 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=auto
+set signcolumn=yes
 
 let g:coc_status_error_sign=" "
 let g:coc_status_warning_sign=" "
 highlight CocErrorSign ctermfg=red  guifg=bg1
 highlight CocWarningSign ctermfg=brown  guifg=bg1
+
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-actions',
+    \ 'coc-lists',
+    \ 'coc-emmet',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-yaml',
+    \ 'coc-prettier',
+    \ 'coc-yank',
+    \ 'coc-json',
+    \ 'coc-go',
+    \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
