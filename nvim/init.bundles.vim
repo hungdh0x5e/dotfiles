@@ -49,6 +49,7 @@ Plug 'vim-scripts/matchit.zip' " % also matches HTML tags / words / etc
 Plug 'duff/vim-scratch' "Open a throwaway scratch buffer
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'ap/vim-css-color'
+Plug 'ekalinin/Dockerfile.vim'
 ""
 
 """ Utilities / Extras / Etc
