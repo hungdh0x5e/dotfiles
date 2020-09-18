@@ -26,6 +26,9 @@ nnoremap <Leader>? :action GotoAction<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gi :action GotoImplementation<CR>
 
+" gl to jump to the last change "exactly"
+nnoremap gl '.
+
 " project search
 nnoremap <Leader>ps :action SearchEverywhere<CR>
 nnoremap <Leader>pf :action GotoFile<CR>

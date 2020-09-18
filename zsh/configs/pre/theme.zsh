@@ -11,6 +11,9 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
+  kubectl
+  docker
+  docker-compose
 )
 
 POWERLEVEL9K_MODE='nerdfont-complete'

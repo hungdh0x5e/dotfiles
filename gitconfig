@@ -60,8 +60,8 @@ aa
   smudge = git hawser smudge %f
   required = true
 [user]
-	name = Huy Hùng
-	email = huyhung1994@gmail.com
+	name = Huy Hùng
+	email = hungdh4@onemount.com
 [includeIf "gitdir:~/workspace/Onaclover/"]
   path = ~/workspace/Onaclover/.gitconfig
 [filter "lfs"]
