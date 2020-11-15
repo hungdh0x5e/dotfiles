@@ -26,4 +26,4 @@ fi
 
 fancy_echo "Installing git with Homebrew ..."
 brew install git
-brew tap caskroom/cask
+brew tap homebrew/cask
