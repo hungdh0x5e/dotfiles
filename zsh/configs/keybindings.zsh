@@ -1,7 +1,7 @@
 # give us access to ^Q
-stty -ixon
+# stty -ixon >/dev/null
 
-# vi mode
+# # vi mode
 bindkey -v
 bindkey "^F" vi-cmd-mode
 
