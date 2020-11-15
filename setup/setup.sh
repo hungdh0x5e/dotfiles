@@ -4,9 +4,9 @@
 # Be prepared to turn your laptop (or desktop)
 # into an awesome development machine.
 
-# Helpers
-source ~/dotfiles/setup/applications.sh
-source ~/dotfiles/setup/dotfiles.sh
-source ~/dotfiles/setup/shell.sh
-# source ~/dotfiles/setup/rubysetup.sh
-source ~/dotfiles/setup/osxsettings.sh
+source ~/dotfiles/setup/01.pre-setup.sh
+source ~/dotfiles/setup/02.osxsettings.sh
+source ~/dotfiles/setup/03.applications.sh
+source ~/dotfiles/setup/04.shell.sh
+source ~/dotfiles/setup/05.dotfiles.sh
+source ~/dotfiles/setup/06.dev-app.sh
