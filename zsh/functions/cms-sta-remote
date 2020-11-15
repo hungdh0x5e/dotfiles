@@ -1,5 +1,0 @@
-function cms-sta-remote() {
-  kubectl config use-context staging
-  cms=`cms_pod`
-  kubectl exec $cms -it bash -c cms-chart
-}
