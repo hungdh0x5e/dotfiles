@@ -1,5 +1,0 @@
-function crm-prod-remote() {
-  kubectl config use-context production
-  fish=`crm_pod`
-  kubectl exec $fish -it sh -c fish-chart
-}

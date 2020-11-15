@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 function cs() {
   if [ $# -eq 0  ]; then
     cd && ls;

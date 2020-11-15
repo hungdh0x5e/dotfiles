@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # Change file extensions recursively in current directory
 #
 #   change-extension erb haml

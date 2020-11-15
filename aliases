@@ -18,6 +18,7 @@ alias path="echo $PATH | tr -s ':' '\n'"
 
 # Navigation
 alias zshconfig="e ~/.zshrc"
+alias zshenv="e ~/.zshenv.local"
 alias zshlocal="e ~/.zshrc.local"
 alias zshsource="source ~/.zshrc"
 
@@ -34,7 +35,7 @@ alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
 alias gbd='git branch -D $(git branch | fzf)'
 # Go to the root of a project (git root)
-alias root='cd $(git rev-parse --show-cdup)'
+alias root='cd $(git rev-parse --show-toplevel)'
 
 # Docker
 alias kube_production='kubectl config use-context production'
