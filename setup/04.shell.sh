@@ -29,7 +29,6 @@ else
  sudo chown -R "$LOGNAME:staff" "$HOMEBREW_PREFIX"
 fi
 
-brew uninstall zsh
 case "$SHELL" in
  */zsh) : ;;
  *)
@@ -38,10 +37,10 @@ case "$SHELL" in
    ;;
 esac
 
-curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bash
+# curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bash
 
 fancy_echo "Installing font"
-git clone git@github.com:powerline/fonts.git ~/fonts-delete && ~/fonts-delete/install.sh && rm -rf ~/fonts-delete
+# git clone git@github.com:powerline/fonts.git ~/fonts-delete && ~/fonts-delete/install.sh && rm -rf ~/fonts-delete
 # Install nerd-font
 brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
@@ -49,9 +48,11 @@ brew cask install font-source-code-pro
 
 fancy_echo "Installing oh-my-zsh"
 mv ~/.oh-my-zsh ~/.oh-my-zsh.bak
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-fancy_echo "Installing powerlevel9k theme"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+fancy_echo "Installing zsh plugin: suggestion + syntax highlight"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+fancy_echo "Installing powerlevel10k theme"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k

@@ -1,11 +1,5 @@
 #!/bin/sh
-
-fancy_echo() {
-  local fmt="$1"; shift
-
-  # shellcheck disable=SC2059
-  printf "\n$fmt\n" "$@"
-}
+source ~/dotfiles/setup/functions.sh
 
 if ! command -v brew >/dev/null; then
  fancy_echo "Installing Homebrew ..."
@@ -19,7 +13,7 @@ if ! command -v brew >/dev/null; then
    export PATH="/usr/local/bin:$PATH"
 fi
 
-if brew list | grep -Fq brew-cask; then
+if brew list --formula | grep -Fq brew-cask; then
  fancy_echo "Uninstalling old Homebrew-Cask ..."
  brew uninstall --force brew-cask
 fi
