@@ -6,6 +6,7 @@ dotfiles=(
   bin
   aliases
   fzf.zsh
+  p10k.zsh
   gitconfig
   gitmessage
   gvimrc
