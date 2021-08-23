@@ -75,3 +75,5 @@ aa
 	textconv = sops -d
 [url "git@gitlab.id.vin:"]
 	insteadOf = https://gitlab.id.vin/
+[pull]
+	rebase = true
