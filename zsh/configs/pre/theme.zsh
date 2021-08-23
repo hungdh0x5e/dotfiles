@@ -21,6 +21,9 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
+  kubectl
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
