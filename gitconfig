@@ -53,15 +53,15 @@ aa
   template = ~/.gitmessage
 [fetch]
   prune = true
+[user]
+	name = Huy Hùng
+	email = huyhung1994@gmail.com
 [include]
   path = ~/.gitconfig.local
 [filter "hawser"]
   clean = git hawser clean %f
   smudge = git hawser smudge %f
   required = true
-[user]
-	name = Huy Hùng
-	email = huyhung1994@gmail.com
 [includeIf "gitdir:~/workspace/Onaclover/"]
   path = ~/workspace/Onaclover/.gitconfig
 [filter "lfs"]
@@ -77,3 +77,5 @@ aa
 	insteadOf = https://gitlab.id.vin/
 [pull]
 	rebase = true
+[gitflow "branch"]
+	develop = develop
