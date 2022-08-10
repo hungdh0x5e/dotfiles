@@ -4,8 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
 """ Theme / Pretty stuff
 """
 " [1]
-Plug 'altercation/vim-colors-solarized'
-Plug 'endel/vim-github-colorscheme'
+Plug 'morhetz/gruvbox'
+" Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'tpope/vim-fugitive' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -56,11 +56,11 @@ Plug 'suan/vim-instant-markdown', {'do': 'npm install -g instant-markdown-d'}
 ""
 
 " [9]
-Plug 'SirVer/ultisnips' | Plug 'justinj/vim-react-snippets' | Plug 'colbycheeze/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'justinj/vim-react-snippets' | Plug 'colbycheeze/vim-snippets'
 
 " [10]
 " supertab makes tab work with autocomplete and ultisnips
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " For YouCompleteMe, have you installed using:
 " ./install.py --tern-completer
 " Provides Async autocomplete with T
@@ -124,11 +124,11 @@ call plug#end()
 " Color scheme
 syntax on
 " let g:solarized_termcolors=16
-let g:colarized_termtrans = 1
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-set background=light
-colorscheme solarized
+"let g:colarized_termtrans = 1
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+set background=dark
+colorscheme gruvbox
 " Allow powerline symbols to show up
 let g:airline_powerline_fonts = 1
 
@@ -264,13 +264,13 @@ map <Leader>md :InstantMarkdownPreview<CR>
 
 " [9]
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " [10] make YCM compatible with UltiSnips (using supertab)
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " let g:deoplete#enable_at_startup = 1
 " if !exists('g:deoplete#omni#input_patterns')
