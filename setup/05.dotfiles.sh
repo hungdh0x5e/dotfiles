@@ -9,30 +9,23 @@ dotfiles=(
   p10k.zsh
   gitconfig
   gitmessage
-  gvimrc
   tmux.conf
   zshenv
   zshrc
-  vimrc.bundles
-  vimrc
-  vim
+  nvim
   rspec
   psqlrc
   ideavimrc
 )
 
-nvimrcpath="~/.config/nvim/init.vim"
-nvimpath="~/.config/nvimrc"
+nvimpath="~/.config/nvim"
 
 fancy_echo "Backup current config"
 today=`date +%Y%m%d`
 for i in ${dotfiles[@]} ; do
   fancy_echo "Backup config ${i}"
 
-  if [ "vimrc" == "$i" ]; then
-    [ -e $nvimrcpath ] && [ ! -L $nvimrcpath ] && mv $nvimrcpath $nvimrcpath.bak.$today ;
-    [ -L $nvimrcpath ] && unlink $nvimrcpath ;
-  elif [ "vim" == "$i" ]; then
+  if [ "nvim" == "$i" ]; then
     [ -e ~$nvimpath ] && [ ! -L ~$nvimpath ] && mv ~$nvimpath ~$nvimpath.bak.$today ;
     [ -L ~$nvimpath ] && unlink ~$nvimpath ;
   else
@@ -46,10 +39,8 @@ fancy_echo "Symlinking dotfiles"
 for i in ${dotfiles[@]} ; do
   fancy_echo "Symlinking dotfile ${i}"
 
-  if [ "vimrc" == "$i" ]; then
-    ln -s ~/dotfiles/vimrc $nvimrcpath
-  elif [ "vim" == "$i" ]; then
-    ln -s ~/.vim $nvimpath
+  if [ "nvim" == "$i" ]; then
+    ln -s ~/dotfiles/nvim $nvimpath
   else
     ln -s ~/dotfiles/$i ~/.$i
   fi
