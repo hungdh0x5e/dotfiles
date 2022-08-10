@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
-  osx
+  macos
   ruby
   git-flow
   git-extras
