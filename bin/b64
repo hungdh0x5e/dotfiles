@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Base64 encode or decode
+
+function b64e() {
+  echo "$1" | base64
+}
+b64e $1
+
+# alias b64d='b64d'
+# function b64d() {
+#   base64 --decode "$1"
+# }
