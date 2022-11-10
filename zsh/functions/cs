@@ -1,8 +1,0 @@
-function cs() {
-  if [ $# -eq 0  ]; then
-    cd && ls;
-  else
-    cd "$*" && ls;
-  fi
-}
-alias cd='cs'

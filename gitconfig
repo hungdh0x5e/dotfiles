@@ -1,9 +1,13 @@
-[init]
-  templatedir = ~/.git_template
+[user]
+	name = Huy Hùng
+	email = huyhung1994@gmail.com
+
 [push]
   default = current
+
 [color]
   ui = auto
+
 [alias]
   aa = add --all
   ci = commit -v
@@ -19,7 +23,7 @@
 
   # Rename local branch
   rn = "!f() { git branch -m $1; }; f"
-aa
+
   # Sync current branch by rebasing on top
   scbm = !git pull origin master --rebase
 
@@ -49,33 +53,41 @@ aa
   excludesfile = ~/.gitignore
   autocrlf = input
   pager = less -FMRiX
+
 [commit]
   template = ~/.gitmessage
+
 [fetch]
   prune = true
-[user]
-	name = Huy Hùng
-	email = huyhung1994@gmail.com
+
 [include]
   path = ~/.gitconfig.local
+
 [filter "hawser"]
   clean = git hawser clean %f
   smudge = git hawser smudge %f
   required = true
-[includeIf "gitdir:~/workspace/Onaclover/"]
-  path = ~/workspace/Onaclover/.gitconfig
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
 [github]
 	user = hungdh0x5e
+
 [diff "sopsdiffer"]
 	textconv = sops -d
-[url "git@gitlab.id.vin:"]
-	insteadOf = https://gitlab.id.vin/
+
 [pull]
 	rebase = true
+
 [gitflow "branch"]
 	develop = develop
+
+[includeIf "gitdir:~/go/src/gitlab.id.vin/"]
+  path = ~/.gitconfig-work
+
+[url "git@gitlab.id.vin:"]
+  insteadOf = https://gitlab.id.vin/
