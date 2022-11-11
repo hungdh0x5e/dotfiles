@@ -50,6 +50,11 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Delete>
 
+nnoremap L l
+nnoremap H h
+nnoremap l w
+nnoremap h b
+
 " Quit insert mode
 inoremap jj <Esc>
 inoremap jk <Esc>
@@ -58,10 +63,10 @@ inoremap jk <Esc>
 vnoremap v <Esc>
 
 " Move to the start of line
-nnoremap H ^
+" nnoremap H ^
 
 " Move to the end of line
-nnoremap L $
+" nnoremap L $
 
 " Redo
 nnoremap U <C-r>
