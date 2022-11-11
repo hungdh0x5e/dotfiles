@@ -12,6 +12,8 @@ Plug 'tpope/vim-fugitive' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/v
 Plug 'airblade/vim-gitgutter'
 ""
 
+Plug 'https://github.com/tbastos/vim-lua'
+
 """ Some ESSENTIAL IDE like plugins for Vim
 """
 " [2] File tree viewer
