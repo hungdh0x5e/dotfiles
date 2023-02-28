@@ -22,17 +22,6 @@ nnoremap <Leader>, :nohlsearch<CR>
 
 nnoremap <Leader>fs :w<CR>
 
-nnoremap <Leader>? :action GotoAction<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gi :action GotoImplementation<CR>
-
-" project search
-nnoremap <Leader>ps :action SearchEverywhere<CR>
-nnoremap <Leader>pf :action GotoFile<CR>
-
-nnoremap fu :action FindUsages<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
-
 " Quit normal mode
 nnoremap <Leader>q  :q<CR>
 nnoremap <Leader>Q  :qa!<CR>
@@ -50,10 +39,10 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Delete>
 
-nnoremap L l
-nnoremap H h
-nnoremap l w
-nnoremap h b
+" nnoremap L l
+" nnoremap H h
+" nnoremap l w
+" nnoremap h b
 
 " Quit insert mode
 inoremap jj <Esc>
@@ -80,23 +69,53 @@ nnoremap <Leader>q <C-W>w
 " Window operation
 nnoremap <Leader>ww <C-W>w
 nnoremap <Leader>wd <C-W>c
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
+" split horizontal
 nnoremap <Leader>ws <C-W>s
-nnoairemap <Leader>w- <C-W>s
+nnoremap <Leader>w- <C-W>s
+" split vertical
 nnoremap <Leader>wv <C-W>v
 nnoremap <Leader>w\| <C-W>v
 
+" Switch window
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
 
 " Tab operation
 nnoremap tn gt
 nnoremap tp gT
+
+" Search will center on the line it's found in
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap # #zz
+nnoremap * *zz
+nnoremap g; g;zz
+
+" Whatever you delete, make it go away
+nnoremap c "_c
+nnoremap C "_C
+nnoremap x "_x
+nnoremap X "_X
+
+xnoremap c "_c
+xnoremap C "_C
+xnoremap x "_x
+xnoremap X "_X
+
+" Mapping Alt + jk to move line up or down
+" Ref https://vim.fandom.com/wiki/Moving_lines_up_or_down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " ==================================================
 " Show all the provided actions via `:actionlist`
@@ -123,6 +142,9 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap gs :action GotoSymbol<CR>
 nnoremap gb :action GotoDatabaseObject<CR>
 
+" project search
+nnoremap <Leader>ps :action SearchEverywhere<CR>
+nnoremap <Leader>pf :action GotoFile<CR>
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
 nnoremap <Leader>gd :action GotoDeclaration<CR>
@@ -130,8 +152,12 @@ nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap <Leader>gi :action GotoImplementation<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
 nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap <Leader>gb :action GotoDatabaseObject<CR>
 nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
 nnoremap <Leader>ot :action ActivateTerminalToolWindow<CR>
+
+nnoremap fu :action FindUsages<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
 
 nnoremap <Leader>fp :action ShowFilePath<CR>
 
@@ -160,4 +186,7 @@ nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
 
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
+nnoremap <Leader>? :action GotoAction<CR>
+
 set ideajoin
