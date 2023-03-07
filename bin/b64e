@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Base64 encode
+
+function b64e() {
+  echo "$*" | base64
+}
+b64e $1
+
