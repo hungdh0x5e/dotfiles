@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# JWT decode
+# require jq, jless
+
+function jwt_decode(){
+    jq -R 'split(".") | .[1] | @base64d | fromjson' <<< "$1" | jless
+}
+jwt_decode $1
