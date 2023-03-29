@@ -1,9 +1,5 @@
 #!/bin/sh
-#
 # Base64 encode
 
-function b64e() {
-  echo "$*" | base64
-}
-b64e $1
+printf "%s" "$1" | base64
 
