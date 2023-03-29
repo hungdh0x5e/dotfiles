@@ -1,7 +1,5 @@
 #!/bin/sh
 #
 # Base64 decode
-function b64d() {
-  echo "$1" | base64 --decode; echo
-}
-b64d $1
+
+printf "%s" $1 | base64 --decode; echo
