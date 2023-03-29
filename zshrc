@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 
 ZSH_DISABLE_COMPFIX=true
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # load custom executable functions
 # for function in ~/.zsh/functions/*; do
@@ -72,3 +72,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

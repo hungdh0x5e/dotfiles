@@ -169,11 +169,10 @@ nnoremap <Leader>oi :action OptimizeImports<CR>
 
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
 
-nnoremap <Leader>rc :action RunToCursor<CR>
-nnoremap <Leader>rC :action ChooseRunConfiguration<CR>
+nnoremap <Leader>rC :action RunToCursor<CR>
+nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
 nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>rf :action RenameFile<CR>
-
 nnoremap <Leader>rr :action Rerun<CR>
 nnoremap <Leader>rs :action Stop<CR>
 
