@@ -18,7 +18,7 @@ M.disabled = {
 
 M.general = {
 	n = {
-		[";"] = { ":", "enter command mode", opts = { nowait = true } },
+		-- [";"] = { ":", "enter command mode", opts = { nowait = true } },
 		["<leader>,"] = { ":noh<cr>", "clear highlight after search", opts = { nowait = true } },
 		["<leader><leader>"] = { "<C-^>", "switch the last two files", opts = { nowait = true } },
 
@@ -62,6 +62,20 @@ M.lazygit = {
 	n = {
 		["<leader>lg"] = { ":LazyGitCurrentFile<CR>", "Open LazyGit in project", opts = { silent = true } },
 		["<leader>lf"] = { ":LazyGitFilterCurrentFile<CR>", "Open LazyGit of current file", opts = { silent = true } },
+	},
+}
+
+M.telescope = {
+	n = {
+		["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "[F]ind [A]ll" },
+		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "[F]ind [B]uffers" },
+		["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "[F]ind current [W]ord" },
+		["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "[F]ind [D]iagnostics" },
+		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "[F]ind [F]iles" },
+		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "[F]ind by [G]rep" },
+		["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "[F]ind [H]elp page" },
+		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "[F]ind [O]ldfiles" },
+		["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[F]ind in current buffer" },
 	},
 }
 
