@@ -1,65 +1,97 @@
 local M = {}
 
 M.treesitter = {
-  ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
-    "c",
-    "markdown",
-    "markdown_inline",
-    "go",
-    "gomod",
-    "dockerfile",
-  },
-  indent = {
-    enable = true,
-    -- disable = {
-    --   "python"
-    -- },
-  },
+	ensure_installed = {
+		"vim",
+		"lua",
+		"html",
+		"css",
+		"javascript",
+		"typescript",
+		"tsx",
+		"c",
+		"markdown",
+		"markdown_inline",
+		"go",
+		"gomod",
+		"dockerfile",
+	},
+	indent = {
+		enable = true,
+		-- disable = {
+		--   "python"
+		-- },
+	},
 }
 
 M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
+	ensure_installed = {
+		-- lua stuff
+		"lua-language-server",
+		"stylua",
 
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
+		-- web dev stuff
+		"css-lsp",
+		"html-lsp",
+		"typescript-language-server",
+		"deno",
+		"prettier",
 
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
+		-- c/cpp stuff
+		"clangd",
+		"clang-format",
 
-    -- golang stuff
-    "gopls",
-  },
+		-- golang stuff
+		"gopls",
+	},
 }
 
 -- git support in nvimtree
 M.nvimtree = {
-  git = {
-    enable = true,
-  },
+	git = {
+		enable = true,
+	},
 
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
-  },
+	renderer = {
+		highlight_git = true,
+		icons = {
+			show = {
+				git = true,
+			},
+		},
+	},
+
+	live_filter = {
+		prefix = "[FILTER]: ",
+		always_show_folders = false,
+	},
+
+	view = {
+		float = {
+			enable = true,
+			open_win_config = function()
+				local screen_w = vim.opt.columns:get()
+				local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+				local window_w = screen_w * 0.8
+				local window_h = screen_h * 0.8
+				local window_w_int = math.floor(window_w)
+				local window_h_int = math.floor(window_h)
+				local center_x = (screen_w - window_w) / 2
+				local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+				return {
+					border = "rounded",
+					relative = "editor",
+					row = center_y,
+					col = center_x,
+					width = window_w_int,
+					height = window_h_int,
+				}
+			end,
+		},
+		width = function()
+			return math.floor(vim.opt.columns:get() * 0.8)
+		end,
+	},
 }
 
 return M
