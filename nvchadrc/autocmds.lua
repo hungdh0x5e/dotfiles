@@ -15,7 +15,7 @@ autocmd({ "FocusLost", "WinLeave" }, {
 	pattern = { "*" },
 	group = augroup("auto_save"),
 	desc = "auto-save when switching window or leaving vim",
-	command = ":silent! wa | echo 'saved'",
+	command = ":silent! wa",
 })
 
 autocmd("TextYankPost", {
