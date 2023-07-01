@@ -60,6 +60,37 @@ local plugins = {
 		end,
 	},
 
+	-- Debugging go
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			-- Creates a beautiful debugger UI
+			"rcarriga/nvim-dap-ui",
+
+			-- Installs the debug adapters for you
+			"williamboman/mason.nvim",
+			"jay-babu/mason-nvim-dap.nvim",
+		},
+		init = function()
+			require("core.utils").load_mappings("dap")
+		end,
+		config = function()
+			require("custom.configs.nvim-dap")
+		end,
+	},
+
+	{
+		"leoluz/nvim-dap-go",
+		ft = "go",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+		config = function(_, opts)
+			require("dap-go").setup(opts)
+			require("core.utils").load_mappings("dap_go")
+		end,
+	},
+
 	{
 		"alexghergh/nvim-tmux-navigation",
 		cmd = { "NvimTmuxNavigateLeft", "NvimTmuxNavigateRight", "NvimTmuxNavigateUp", "NvimTmuxNavigateDown" },
