@@ -1,11 +1,19 @@
 " Plugin
+set ideajoin
 set easymotion
 set surround
 set multiple-cursors
 set commentary
+set NERDTree
+set quickscope
+set argtextobj
+set textobj-indent
+set highlightedyank
 
+" set leader to space
 let mapleader=' '
 
+" some basic configuration"
 set hlsearch
 set incsearch
 set ignorecase
@@ -20,15 +28,9 @@ set clipboard+=unnamed
 " clear the highlighted search result
 nnoremap <Leader>, :nohlsearch<CR>
 
-nnoremap <Leader>fs :w<CR>
-
 " Quit normal mode
 nnoremap <Leader>q  :q<CR>
 nnoremap <Leader>Q  :qa!<CR>
-
-" Move half page faster
-nnoremap <Leader>d  <C-d>
-nnoremap <Leader>u  <C-u>
 
 " Insert mode shortcut
 inoremap <C-h> <Left>
@@ -63,6 +65,10 @@ nnoremap U <C-r>
 " Yank to the end of line
 nnoremap Y y$
 
+nnoremap 0 ^
+
+nnoremap J mzJ`z
+
 " quit ==> close current window
 nnoremap <Leader>q <C-W>w
 
@@ -74,21 +80,21 @@ nnoremap <Leader>ws <C-W>s
 nnoremap <Leader>w- <C-W>s
 " split vertical
 nnoremap <Leader>wv <C-W>v
-nnoremap <Leader>w\| <C-W>v
+nnoremap <Leader>w\ <C-W>v
 
 " Switch window
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
 
 " Tab operation
-nnoremap tn gt
-nnoremap tp gT
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+" Move half page faster and center
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " Search will center on the line it's found in
 nnoremap n nzzzv
@@ -122,70 +128,84 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " ==================================================
 
 " built in search looks better
-nnoremap / :action Find<CR>
+" nnoremap / :action Find<CR>
 " but preserve ideavim search
-nnoremap <Leader>/ /
+" nnoremap <Leader>/ /
 
-nnoremap <Leader>;; :action CommentByLineComment<CR>
-
-nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
-nnoremap <Leader>br :action ViewBreakpoints<CR>
+" close other editor
+nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
 
 nnoremap <Leader>cv :action ChangeView<CR>
-
-nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
-
-nnoremap ga :action GotoAction<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gf :action GotoFile<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gs :action GotoSymbol<CR>
-nnoremap gb :action GotoDatabaseObject<CR>
-
-" project search
-nnoremap <Leader>ps :action SearchEverywhere<CR>
-nnoremap <Leader>pf :action GotoFile<CR>
-nnoremap <Leader>ga :action GotoAction<CR>
-nnoremap <Leader>gc :action GotoClass<CR>
-nnoremap <Leader>gd :action GotoDeclaration<CR>
-nnoremap <Leader>gf :action GotoFile<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-nnoremap <Leader>gt :action GotoTest<CR>
-nnoremap <Leader>gb :action GotoDatabaseObject<CR>
-nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
-nnoremap <Leader>ot :action ActivateTerminalToolWindow<CR>
-
-nnoremap fu :action FindUsages<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
-
-nnoremap <Leader>fp :action ShowFilePath<CR>
-
-nnoremap <Leader>ic :action InspectCode<CR>
-
-nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
-
-nnoremap <Leader>oi :action OptimizeImports<CR>
-
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
+nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
 
+" for debugging
+nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>dv :action ViewBreakpoints<CR
+nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
+" for running service
 nnoremap <Leader>rC :action RunToCursor<CR>
 nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>rf :action RenameFile<CR>
 nnoremap <Leader>rr :action Rerun<CR>
 nnoremap <Leader>rs :action Stop<CR>
 
-nnoremap <Leader>se :action SearchEverywhere<CR>
-nnoremap <Leader>su :action ShowUsages<CR>
-nnoremap <Leader>tc :action CloseActiveTab<CR>
-nnoremap <Leader>si :action StepInto<CR>
+nnoremap <Leader>rf :action RenameFile<CR>
 
-nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
+" Git
+nnoremap <Leader>rh :action Vcs.RollbackChangedLines<CR>
+nnoremap <Leader>ga :action Annotate<CR>
+nnoremap <Leader>gb :action GitToolBox.BlameDetails<CR>
+nnoremap <Leader>gd :action Compare.Selected<CR>
 
-nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
-vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+" project search
+nnoremap <Leader>fe :action SearchEverywhere<CR>
+nnoremap <Leader>fa :action GotoAction<CR>
+nnoremap <Leader>fb :action FileStructurePopup<CR>
+nnoremap <Leader>fc :action GotoClass<CR>
+nnoremap <Leader>ff :action GotoFile<CR>
+nnoremap <Leader>fp :action ShowFilePath<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Leader>fs :action GotoSymbol<CR>
+nnoremap <Leader>fdb :action GotoDatabaseObject<CR>
+
+" LSP config
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap <Leader>re :action RenameElement<CR>
+
+" Terminal
+nnoremap <Leader>t :action ActivateTerminalToolWindow<CR>
+
+nnoremap <Leader>oi :action OptimizeImports<CR>
+
+nnoremap [d :action GotoPreviousError<CR>
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
 
 nnoremap <Leader>? :action GotoAction<CR>
+" ===================================="
 
-set ideajoin
+" ==================================================
+" Plugin mapping: NERDTree
+" https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+" ==================================================
+" j/k: Go up and down.
+" q: Close the project pane.
+" P: Jump to the root node.
+" o: Open file or directory.
+" go: Open file but focus on the project pane.
+" s: Open selected file in a new vertical split.
+map <C-n> :NERDTreeToggle<CR>
+map <Leader>e :NERDTreeFind<CR>
+
+" ==================================================
+" Plugin mapping: EasyMotion
+" ==================================================
+map <Leader>J <Plug>(easymotion-s)
+map <Leader>j <Plug>(easymotion-f)

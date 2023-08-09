@@ -24,7 +24,7 @@ local sources = {
 	-- golang
 	b.formatting.gofumpt.with({ filetypes = { "go" } }),
 	b.formatting.goimports_reviser.with({ filetypes = { "go" } }),
-	b.formatting.golines.with({ filetypes = { "go" } }),
+	-- b.formatting.golines.with({ filetypes = { "go" } }),
 }
 
 local on_attach = function(client, bufnr)
@@ -42,16 +42,17 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.go",
-		callback = function()
-			vim.lsp.buf.code_action({
-				bufnr = bufnr,
-				context = { only = { "source.organizeImports" } },
-				apply = true,
-			})
-		end,
-	})
+  -- lua vim.lsp.buf.code_action({context = { only = { "source.organizeImports" } }, apple=true})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.go",
+	-- 	callback = function()
+	-- 		vim.lsp.buf.code_action({
+	-- 			bufnr = bufnr,
+	-- 			context = { only = { "source.organizeImports" } },
+	-- 			apply = true,
+	-- 		})
+	-- 	end,
+	-- })
 end
 
 null_ls.setup({
