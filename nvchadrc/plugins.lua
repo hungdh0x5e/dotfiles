@@ -111,6 +111,9 @@ local plugins = {
 		},
 	},
 
+	{
+		"rcarriga/nvim-notify",
+	},
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",

@@ -55,6 +55,7 @@ vim.cmd([[
     autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
     autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
     autocmd BufRead,BufNewFile vimrc.local set filetype=vim
+    autocmd BufRead,BufNewFile Dockerfile* set filetype=dockerfile
 
     " Allow stylesheets to autocomplete hyphenated words
     autocmd FileType css,scss,sass,less setlocal iskeyword+=-

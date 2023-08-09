@@ -12,15 +12,15 @@ M.disabled = {
 		-- no need terminal in nvim
 		["<leader>h"] = "",
 		["<leader>b"] = "",
-    ["<leader>fa"]="",
-    ["<leader>fb"]="",
-    ["<leader>fw"]="",
-    ["<leader>fd"]="",
-    ["<leader>ff"]="",
-    ["<leader>fg"]="",
-    ["<leader>fh"]="",
-    ["<leader>fo"]="",
-    ["<leader>fz"]="",
+		["<leader>fa"] = "",
+		["<leader>fb"] = "",
+		["<leader>fw"] = "",
+		["<leader>fd"] = "",
+		["<leader>ff"] = "",
+		["<leader>fg"] = "",
+		["<leader>fh"] = "",
+		["<leader>fo"] = "",
+		["<leader>fz"] = "",
 
 		["<Esc>"] = "",
 	},
@@ -49,6 +49,10 @@ M.general = {
 		["#"] = { "#zz" },
 		["*"] = { "*zz" },
 		["g;"] = { "g;zz" },
+		["<C-U>"] = { "<C-U>zz" },
+		["<C-D>"] = { "<C-D>zz" },
+
+		["<leader>co"] = { ":%bd | e# <CR>", "Close all other buffer", opts = { silent = true } },
 	},
 
 	v = {
@@ -77,41 +81,41 @@ M.lazygit = {
 
 M.telescope = {
 	n = {
-		["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "[S]earch [A]ll" },
-		["<leader>sb"] = { "<cmd> Telescope buffers <CR>", "[S]earch [B]uffers" },
-		["<leader>sw"] = { "<cmd> Telescope grep_string <CR>", "[S]earch current [W]ord" },
-		["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
-		["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "[S]earch [F]iles" },
-		["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "[S]earch by [G]rep" },
-		["<leader>sh"] = { "<cmd> Telescope help_tags <CR>", "[S]earch [H]elp page" },
-		["<leader>so"] = { "<cmd> Telescope oldfiles <CR>", "[S]earch [O]ldfiles" },
-		["<leader>sz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[S]earch in current buffer" },
+		["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "[Find] [A]ll" },
+		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "[Find] [B]uffers" },
+		["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "[Find] current [W]ord" },
+		["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "[Find] [D]iagnostics" },
+		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "[Find] [F]iles" },
+		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "[Find] by [G]rep" },
+		["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "[Find] [H]elp page" },
+		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "[Find] [O]ldfiles" },
+		["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[Find] in current buffer" },
 	},
 }
 
 M.dap = {
 	plugin = true,
 	n = {
-  ["<F5>"] = {"<cmd> DapContinue <CR>", "Debug: Start/Continue" },
-  ["<F1>"] = {"<cmd> DapStepInto <CR>", "Debug: Step Into" },
-  ["<F2>"] = {"<cmd> DapStepOver <CR>", "Debug: Step Over" },
-  ["<F3>"] = {"<cmd> DapStepOut <CR>", "Debug: Step Out" },
+		["<F5>"] = { "<cmd> DapContinue <CR>", "Debug: Start/Continue" },
+		["<F1>"] = { "<cmd> DapStepInto <CR>", "Debug: Step Into" },
+		["<F2>"] = { "<cmd> DapStepOver <CR>", "Debug: Step Over" },
+		["<F3>"] = { "<cmd> DapStepOut <CR>", "Debug: Step Out" },
 
-  ["<leader>b"]= { "<cmd> DapToggleBreakpoint <CR>", "Debug: Toggle Breakpoint" },
-  ["<leader>B"]={
-    function()
-      local dap = require("dap")
-        dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-    end,
-     "Debug: Set Breakpoint",
-    },
-  ["<F7>"] = {
-        function ()
-          local dapui = require("dapui")
-           dapui.toggle()
-        end,
-  "Debug: See last session result.",
-      },
+		["<leader>b"] = { "<cmd> DapToggleBreakpoint <CR>", "Debug: Toggle Breakpoint" },
+		["<leader>B"] = {
+			function()
+				local dap = require("dap")
+				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end,
+			"Debug: Set Breakpoint",
+		},
+		["<F7>"] = {
+			function()
+				local dapui = require("dapui")
+				dapui.toggle()
+			end,
+			"Debug: See last session result.",
+		},
 	},
 }
 

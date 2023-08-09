@@ -37,7 +37,7 @@ function fcmd() {
 
 # Lauch application
 function fapp() {
-  local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | fzf)
+  local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | __fzfp)
   open -a $app
 }
 
