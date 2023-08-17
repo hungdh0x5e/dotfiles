@@ -114,6 +114,18 @@ local plugins = {
 	{
 		"rcarriga/nvim-notify",
 	},
+
+	{
+		"phaazon/hop.nvim",
+		branch = "v2",
+		cmd = { "HopWord", "HopPattern", "HopChar1", "HopChar2" },
+		init = function()
+			require("core.utils").load_mappings("hop")
+		end,
+		config = function()
+			require("custom.configs.hop")
+		end,
+	},
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",

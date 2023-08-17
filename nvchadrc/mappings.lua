@@ -137,4 +137,15 @@ M.dap_go = {
 	},
 }
 
+-- hop like easy-motion
+M.hop = {
+	plugin = true,
+	n = {
+		["<leader>j"] = { "<cmd> HopPattern <CR>", "EasyMotion: HopPattern" },
+		["<leader>h"] = { "<cmd> HopWord <CR>", "EasyMotion: HopWord" },
+		["<leader>k"] = { "<cmd> HopChar2 <CR>", "EasyMotion: HopChar2" },
+		["<leader>l"] = { "<cmd> HopChar1 <CR>", "EasyMotion: HopChar1" },
+	},
+}
+
 return M
