@@ -145,6 +145,24 @@ M.hop = {
 		["<leader>h"] = { "<cmd> HopWord <CR>", "EasyMotion: HopWord" },
 		["<leader>k"] = { "<cmd> HopChar2 <CR>", "EasyMotion: HopChar2" },
 		["<leader>l"] = { "<cmd> HopChar1 <CR>", "EasyMotion: HopChar1" },
+		["f"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"EasyMotion: override f built-in",
+		},
+		["F"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"EasyMotion: override F built-in",
+		},
 	},
 }
 
