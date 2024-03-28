@@ -7,7 +7,6 @@ applications=(
     fzf
     fd
     ripgrep
-    the_silver_searcher
     wget
     tree
     lazygit
@@ -28,13 +27,6 @@ done
 
 echo "Clone tmux-plugins/tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# fancy_echo "Installing python and setting up Neovim"
-# brew install python3
-# brew install neovim/neovim/neovim
-# curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# pip3 install neovim
 
 # openssl@3 is keg-only, which means it was not symlinked into /opt/homebrew,
 # because macOS provides LibreSSL.
