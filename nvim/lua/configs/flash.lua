@@ -1,12 +1,13 @@
 local opts = {
+  labels = "asdfhjklqweruiopzxcvbnm",
   jump = {
     autojump = true,
   },
   modes = {
     char = {
-      enable = false,
-      jump_labels = true,
+      jump_labels = false,
       highlight = { backdrop = false },
+      multi_line = false,
     },
   },
 }

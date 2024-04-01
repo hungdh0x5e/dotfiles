@@ -4,7 +4,7 @@ require "nvchad.options"
 
 vim.opt.textwidth = 120
 vim.opt.list = true
-vim.opt.listchars = { tab = "▸ ", trail = "·", nbsp = "␣", eol = '↲' }
+vim.opt.listchars = { tab = "▸ ", trail = "·", nbsp = "␣"} -- eol = '↲' }
 vim.opt.relativenumber = true
 
 -- Keep lines below cursor when scrolling

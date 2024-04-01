@@ -6,12 +6,12 @@ harpoon:setup()
 
 vim.keymap.set("n", "<leader>ha", function()
   harpoon:list():append()
-  print "Added to Harpoon"
+  vim.notify("Added to Harpoon", vim.log.levels.INFO)
 end, { desc = "Harpoon Add to bookmarks" })
 
 vim.keymap.set("n", "<leader>hd", function()
   harpoon:list():remove()
-  print "Deleted from Harpoon"
+  vim.notify("Deleted from Harpoon", vim.log.levels.INFO)
 end, { desc = "Harpoon Delete from bookmarks" })
 
 vim.keymap.set("n", "<leader>hl", function()

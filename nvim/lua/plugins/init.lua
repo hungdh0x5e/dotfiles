@@ -54,8 +54,7 @@ return {
     "folke/trouble.nvim",
     ft = "go",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-    },
+    opts = {},
   },
 
   -- Parser and highlight code
@@ -81,7 +80,7 @@ return {
   -- Like easy-motion, quick move by label
   {
     "smoka7/hop.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
       require "configs.hop"
     end,

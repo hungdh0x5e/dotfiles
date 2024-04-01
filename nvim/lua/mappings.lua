@@ -132,6 +132,14 @@ end, { desc = "Whichkey query lookup" })
 -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
 -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
 -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-map("n", "<leader>ge", "<cmd>GoIfErr<CR>", {desc="Gopher: Go if error"})
-map("n", "<leader>gta", "<cmd>GoTagAdd<CR>", {desc="Gopher: Go add tag"})
-map("n", "<leader>gtr", "<cmd>GoTagRm<CR>", {desc="Gopher: Go remove tag"})
+
+-- Gopher
+map("n", "<leader>ge", "<cmd>GoIfErr<CR>", { desc = "Gopher: Go if error" })
+map("n", "<leader>gta", "<cmd>GoTagAdd<CR>", { desc = "Gopher: Go add tag" })
+map("n", "<leader>gtr", "<cmd>GoTagRm<CR>", { desc = "Gopher: Go remove tag" })
+
+map("n", "<leader>rr", function()
+  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 C-c ENTER' ]]
+  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 "root && cd cmd/vinshop-public && go run ." ENTER' ]]
+  vim.notify("Reloading vinshop-public",vim.log.levels.INFO )
+end, {desc="VinShop: restart service"})
