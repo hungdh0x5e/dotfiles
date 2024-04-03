@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave", "InsertLeave" }, {
   desc = "Auto-save when switching window or leaving vim",
   group = vim.api.nvim_create_augroup("hungdh-auto-save", { clear = true }),
   command = ":silent! wa",
@@ -27,11 +27,10 @@ vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("hungdh-telescope-result", { clear = true }),
   pattern = "TelescopeResults",
   callback = function(ctx)
-    vim.cmd("setlocal nofoldenable")
+    vim.cmd "setlocal nofoldenable"
     vim.api.nvim_buf_call(ctx.buf, function()
       vim.fn.matchadd("TelescopeParent", "\t.*$")
       vim.api.nvim_set_hl(0, "TelescopeParent", { fg = "Comment", bg = "Comment", underline = true })
     end)
   end,
 })
-

@@ -5,7 +5,7 @@ local opts = {
   },
   modes = {
     char = {
-      jump_labels = false,
+      jump_labels = true,
       highlight = { backdrop = false },
       multi_line = false,
     },

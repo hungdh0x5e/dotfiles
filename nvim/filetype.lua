@@ -4,18 +4,18 @@ vim.filetype.add {
     mdx = "mdx",
     log = "log",
     conf = "conf",
-    env = "dotenv",
+    env = "config",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {
-    [".env"] = "dotenv",
+    [".env"] = "config",
     ["env"] = "dotenv",
     ["tsconfig.json"] = "jsonc",
   },
   -- Detect and apply filetypes based on certain patterns of the filenames
   pattern = {
     -- INFO: Match filenames like - ".env.example", ".env.local" and so on
-    ["%.env%.[%w_.-]+"] = "dotenv",
+    ["%.env%.[%w_.-]+"] = "config",
     ["Dockerfile[%w_.-]+"] = "dockerfile",
   },
 }
