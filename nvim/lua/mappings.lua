@@ -46,9 +46,9 @@ map("n", "<leader>lf", "<cmd>LazyGitFilterCurrentFile<CR>", { desc = "LazyGit Op
 
 -- Telescope File picker
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "[F]ind [F]iles respects .gitignore" })
-map("n", "<leader>fg", "<cmd>Telescope git_files<cr>", { desc = "[F]ind [G]it files" })
+-- map("n", "<leader>fg", "<cmd>Telescope git_files<cr>", { desc = "[F]ind [G]it files" })
 map("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { desc = "[F]ind current [W]ord" })
-map("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "[F]ind by [G]rep" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "[F]ind by [G]rep" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "[F]ind [O]ldfiles" })
 map(
   "n",
