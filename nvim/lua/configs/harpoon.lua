@@ -5,7 +5,7 @@ harpoon:setup()
 -- REQUIRED
 
 vim.keymap.set("n", "<leader>ha", function()
-  harpoon:list():append()
+  harpoon:list():add()
   vim.notify("Added to Harpoon", vim.log.levels.INFO)
 end, { desc = "Harpoon Add to bookmarks" })
 
@@ -19,11 +19,11 @@ vim.keymap.set("n", "<leader>hl", function()
 end, { desc = "Harpoon Show bookmarks" })
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<leader>hp", function()
+vim.keymap.set("n", "<C-S-P>", function()
   harpoon:list():prev()
 end, { desc = "Harpoon Previous" })
 
-vim.keymap.set("n", "<leader>hn", function()
+vim.keymap.set("n", "<C-S-N>", function()
   harpoon:list():next()
 end, { desc = "Harpoon Next" })
 
