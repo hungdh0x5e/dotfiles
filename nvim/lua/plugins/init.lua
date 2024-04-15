@@ -13,14 +13,6 @@ return {
     end,
   },
 
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "configs.flash"
-    end,
-  },
-
   -- Navigate between Neovim vs tmux panel
   {
     "alexghergh/nvim-tmux-navigation",
@@ -90,8 +82,8 @@ return {
         desc = "Format buffer",
       },
     },
-    config = function()
-      require "configs.conform"
+    opts = function()
+      return require "configs.conform"
     end,
   },
 }
