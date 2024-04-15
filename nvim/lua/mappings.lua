@@ -6,9 +6,17 @@ local map = vim.keymap.set
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+vim.keymap.set("n", "j", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']], { expr = true })
+vim.keymap.set("n", "k", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
+
+-- move line up/down
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+
+-- join line keep cursor position
 map("n", "J", "mzJ`z")
+
+-- center content
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
@@ -28,9 +36,18 @@ map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight after search", nowait = true })
-map("n", "<leader>,", "<cmd>noh<CR>", { desc = "Clear highlight after search", nowait = true })
--- map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle Line number" })
--- map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle Relative number" })
+map(
+  { "n", "v" },
+  "<leader>S",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word under cursor" }
+)
+
+-- ...and navigating through the items.
+map("n", "[q", "<cmd>cprev<cr>zvzz", { desc = "Previous quickfix item" })
+map("n", "]q", "<cmd>cnext<cr>zvzz", { desc = "Next quickfix item" })
+map("n", "[l", "<cmd>lprev<cr>zvzz", { desc = "Previous loclist item" })
+map("n", "]l", "<cmd>lnext<cr>zvzz", { desc = "Next loclist item" })
 
 -- nvim-tmux-navigation
 map("n", "<C-h>", "<cmd>NvimTmuxNavigateLeft<CR>", { desc = "Windown move to left" })
@@ -73,8 +90,8 @@ end
 mapLSP("<leader>gr", "<cmd>Telescope lsp_references<cr>", "[G]oto [R]eferences")
 mapLSP("<leader>gd", "<cmd>Telescope lsp_definitions<cr>", "[G]oto [D]efinition")
 mapLSP("<leader>gi", "<cmd>Telescope lsp_implementations<cr>", "[G]oto [I]mplementation")
-mapLSP("<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "[F]ind [S]ymbols")
-mapLSP("<leader>fS", "<cmd>Telescope lsp_document_symbols<cr>", "[F]ind [S]ymbols Buffer")
+mapLSP("<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "[F]ind [S]ymbols")
+mapLSP("<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", "[F]ind [S]ymbols Buffer")
 mapLSP("<leader>fd", "<cmd>Telescope diagnostics<cr>", "[F]ind [D]iagnostics")
 mapLSP("<leader>ft", "<cmd>Telescope lsp_type_definitions<cr>", "[F]ind [D]efinition")
 mapLSP("[d", vim.diagnostic.goto_prev, "Lsp prev diagnostic")
@@ -95,22 +112,13 @@ end, { desc = "Buffer Goto next" })
 map("n", "<S-tab>", function()
   require("nvchad.tabufline").prev()
 end, { desc = "Buffer Goto prev" })
-map("n", "<leader>q", function()
+map("n", "<leader>cc", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "Buffer Close" })
+map("n", "<leader>co", function()
+  require("nvchad.tabufline").closeOtherBufs()
+end, { desc = "Buffer Close Other" })
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer New" })
-
--- Comment
--- map("n", "<leader>/", function()
---   require("Comment.api").toggle.linewise.current()
--- end, { desc = "Comment Toggle" })
---
--- map(
---   "v",
---   "<leader>/",
---   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
---   { desc = "Comment Toggle" }
--- )
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })
@@ -140,3 +148,7 @@ map("n", "<leader>rr", function()
   vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 "root && cd cmd/vinshop-public && go run ." ENTER' ]]
   vim.notify("Reloading vinshop-public", vim.log.levels.INFO)
 end, { desc = "VinShop: restart service" })
+
+-- Debugging
+map("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", { desc = "Debug: toggle breakpoint" })
+map("n", "<leader>dc", ":lua require('dap').continue()<CR>", { desc = "Debug: continue" })

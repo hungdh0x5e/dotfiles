@@ -32,5 +32,5 @@ vim.keymap.set("n", "T", function()
   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
 end, { remap = true })
 
-vim.keymap.set("n", "<leader>s", "<cmd>HopChar1<CR>", { desc = "EasyMotion: Find char" })
-vim.keymap.set("n", "<leader>d", "<cmd>HopWord<CR>", { desc = "EasyMotion: Find word" })
+vim.keymap.set("n", "sc", "<cmd>HopChar2<CR>", { desc = "EasyMotion: Find char" })
+vim.keymap.set("n", "sw", "<cmd>HopWord<CR>", { desc = "EasyMotion: Find word" })
