@@ -1,17 +1,22 @@
--- require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 -- General mapping
--- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-vim.keymap.set("n", "j", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']], { expr = true })
-vim.keymap.set("n", "k", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- move line up/down
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
+
+-- better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- join line keep cursor position
 map("n", "J", "mzJ`z")
@@ -19,8 +24,16 @@ map("n", "J", "mzJ`z")
 -- center content
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
+-- map("n", "n", "nzzzv")
+-- map("n", "N", "Nzzzv")
+
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
 -- Whatever you delete, make it go away
 map("n", "c", '"_c')
@@ -29,13 +42,15 @@ map("n", "x", '"_x')
 map("n", "X", '"_X')
 map("x", "p", "P")
 
--- TIP: Disable arrow keys in normal mode
-map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-map("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+-- Resize window using arrow keys
+map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight after search", nowait = true })
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+
 map(
   { "n", "v" },
   "<leader>S",
@@ -48,6 +63,10 @@ map("n", "[q", "<cmd>cprev<cr>zvzz", { desc = "Previous quickfix item" })
 map("n", "]q", "<cmd>cnext<cr>zvzz", { desc = "Next quickfix item" })
 map("n", "[l", "<cmd>lprev<cr>zvzz", { desc = "Previous loclist item" })
 map("n", "]l", "<cmd>lnext<cr>zvzz", { desc = "Next loclist item" })
+
+-- buffers
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- nvim-tmux-navigation
 map("n", "<C-h>", "<cmd>NvimTmuxNavigateLeft<CR>", { desc = "Windown move to left" })
