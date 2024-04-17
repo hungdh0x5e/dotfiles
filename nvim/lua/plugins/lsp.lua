@@ -3,6 +3,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+      -- used for completion, annotations and signatures of Neovim apis
+      { "folke/neodev.nvim", opts = {} },
+
       -- Sticky function name in header
       {
         "nvim-treesitter/nvim-treesitter-context",
