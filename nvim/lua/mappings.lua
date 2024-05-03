@@ -33,12 +33,19 @@ map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search R
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
--- Whatever you delete, make it go away
-map("n", "c", '"_c')
-map("n", "C", '"_C')
-map("n", "x", '"_x')
-map("n", "X", '"_X')
--- map("x", "p", "P")
+-- Whatever you , make it go away
+map("n", "c", [["_c]])
+map("n", "C", [["_C]])
+map({ "n", "v" }, "x", [["_x]])
+map({ "n", "v" }, "X", [["_X]])
+map({ "n", "v" }, "<leader>d", [["_d]])
+
+-- paste without override clipboard in visual mode
+map("x", "<leader>p", [["_dP]])
+
+-- copy, paste to system clipboard
+map({ "n", "v" }, "<leader>y", [["+y]])
+map("n", "<leader>Y", [["+Y]])
 
 -- Resize window using arrow keys
 map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
@@ -65,7 +72,8 @@ map("n", "]l", "<cmd>lnext<cr>zvzz", { desc = "Next loclist item" })
 -- buffers
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer New" })
+map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
+map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Buffer Delete" })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })

@@ -27,7 +27,7 @@ M.ui = {
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "arrow",
-    order = { "mode", "file", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "git", "cwd", "cursor" },
+    order = { "mode", "file", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" }, --  "git",
     modules = {
       file = function()
         local icon = "󰈚"
@@ -43,10 +43,8 @@ M.ui = {
           end
         end
 
-        if vim.o.columns < 120 then
-          name = name:match "([^/\\]+)[/\\]*$" -- "([^/\\]+)[/\\]*$"
-          -- elseif vim.o.columns < 120 then
-          -- name = name:match "([^/\\]+)[/]([^/\\]+)*$"
+        if vim.o.columns < 100 then
+          name = name:match "([^/\\]+)[/\\]*$" -- only show filename
         end
         return "%#St_file# " .. icon .. " " .. name .. " " .. "%#St_file_sep#"
       end,
