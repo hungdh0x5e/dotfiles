@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
 -- General mapping map("i", "jk", "<ESC>")
 
 -- save file
@@ -19,6 +21,10 @@ map("v", ">", ">gv")
 -- join line keep cursor position
 map("n", "J", "mzJ`z")
 
+-- moving first or last in current line
+map({ "n", "o", "x" }, "<S-h>", "^", opts)
+map({ "n", "o", "x" }, "<S-l>", "g_", opts)
+
 -- center content
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
@@ -34,14 +40,14 @@ map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
 -- Whatever you , make it go away
-map("n", "c", [["_c]])
-map("n", "C", [["_C]])
+map("n", "c", [["_d]])
+map("n", "C", [["_D]])
 map({ "n", "v" }, "x", [["_x]])
 map({ "n", "v" }, "X", [["_X]])
 map({ "n", "v" }, "<leader>d", [["_d]])
 
 -- paste without override clipboard in visual mode
-map("x", "<leader>p", [["_dP]])
+map("x", "p", [["_dP]])
 
 -- copy, paste to system clipboard
 map({ "n", "v" }, "<leader>y", [["+y]])
@@ -91,3 +97,16 @@ map("n", "<leader>rr", function()
   vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 "root && cd cmd/vinshop-public && go run ." ENTER' ]]
   vim.notify("Reloading vinshop-public", vim.log.levels.INFO)
 end, { desc = "VinShop: restart service" })
+
+--- copy file name to the clipboard
+map("n", "yff", function()
+  local filename = vim.api.nvim_buf_get_name(0)
+  vim.fn.setreg("+", filename)
+  vim.notify("Copied " .. filename, vim.log.levels.INFO)
+end, { desc = "yanl file full path" })
+
+map("n", "yfr", function()
+  local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:.")
+  vim.fn.setreg("+", filename)
+  vim.notify("Copied " .. filename, vim.log.levels.INFO)
+end, { desc = "yank file relative path" })

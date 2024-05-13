@@ -76,11 +76,14 @@ return {
     },
 
     routes = {
-      -- ignore 'written' message
-      {
-        filter = { event = "msg_show", kind = "", find = "written" },
-        opts = { skip = true },
-      },
+      { filter = { find = "E162" }, view = "mini" },
+      { filter = { event = "msg_show", kind = "", find = "written" }, skip = true },
+      { filter = { event = "msg_show", find = "search hit BOTTOM" }, skip = true },
+      { filter = { event = "msg_show", find = "search hit TOP" }, skip = true },
+      { filter = { event = "emsg", find = "E23" }, skip = true },
+      { filter = { event = "emsg", find = "E20" }, skip = true },
+      { filter = { find = "No signature help" }, skip = true },
+      { filter = { find = "E37" }, skip = true },
 
       -- bring @q to command line
       {
