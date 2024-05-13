@@ -6,7 +6,7 @@ alias ...='../..'
 alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
-alias -g G='| grep'
+alias -g G='| rg'
 alias -g M='| less'
 alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
@@ -30,17 +30,15 @@ alias dck="docker-compose kill"
 alias dcw="docker-compose exec web bash"
 alias dcb="docker-compose exec db bash"
 
+alias lg="lazygit"
+alias yless="jless --yaml"
+
 # For git
 alias gcob='git checkout $(git branch | fzf)'
 alias gcorb='git checkout --track $(git branch -r | fzf)'
 alias gbd='git branch -D $(git branch | fzf)'
 # Go to the root of a project (git root)
 alias root='cd $(git rev-parse --show-toplevel)'
-
-# Docker
-alias kube_production='kubectl config use-context production'
-alias kube_staging='kubectl config use-context staging'
-alias kube_nightly='kubectl config use-context nightly'
 
 # This kills a process that slows down my Mac every once in a while...??
 alias killn="ps -ax | grep notifyd | head -1 | awk '{print \$1}' | sudo xargs kill"
