@@ -42,15 +42,15 @@ return {
       end, { expr = true })
 
       -- Actions
-      map("n", "<leader>rh", gs.reset_hunk)
+      map("n", "<leader>rh", gs.reset_hunk, { desc = "Git reset hunk" })
       map("v", "<leader>rh", function()
         gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-      end)
-      map("n", "<leader>ph", gs.preview_hunk)
-      map("n", "<leader>gb", function()
+      end, { desc = "Git reset hunk" })
+      map("n", "<leader>ph", gs.preview_hunk, { desc = "Git preview hunk" })
+      map("n", "<leader>bp", function()
         gs.blame_line { full = true }
-      end)
-      map("n", "<leader>tb", gs.toggle_current_line_blame)
+      end, { desc = "Git blame preview" })
+      map("n", "<leader>gt", gs.toggle_current_line_blame, { desc = "Git toggle blame" })
 
       -- Text object
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

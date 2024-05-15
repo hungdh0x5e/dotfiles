@@ -13,6 +13,11 @@ return {
       ensure_installed = {
         "bash",
         "diff",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
         "html",
         "javascript",
         "json",
