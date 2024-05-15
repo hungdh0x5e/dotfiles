@@ -5,6 +5,7 @@ vim.filetype.add {
     log = "log",
     conf = "conf",
     env = "config",
+    bru = "ruby",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {
