@@ -93,3 +93,7 @@
   insteadOf = https://gitlab.id.vin/
 [init]
 	defaultBranch = develop
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff2
