@@ -72,10 +72,6 @@ map(
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
 map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Buffer Delete" })
 
--- nvimtree
--- map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvimtree Focus window" })
-
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
 
