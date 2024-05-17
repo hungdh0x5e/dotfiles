@@ -12,6 +12,10 @@ return {
     vim.keymap.set("n", "gH", "<cmd>diffget //2<CR>", { desc = "Git diffget 2" })
     vim.keymap.set("n", "gL", "<cmd>diffget //3<CR>", { desc = "Git diffget 3" })
 
+    vim.cmd [[
+      let g:fugitive_summary_format = "%s (%ar) <%an>"
+    ]]
+
     vim.api.nvim_create_autocmd("BufWinEnter", {
       group = vim.api.nvim_create_augroup("hungdh_fugitive", {}),
       pattern = "*",
