@@ -69,15 +69,6 @@ map(
   { desc = "Replace word under cursor" }
 )
 
--- ...and navigating through the items.
-map("n", "[q", "<cmd>cprev<cr>zvzz", { desc = "Previous quickfix item" })
-map("n", "]q", "<cmd>cnext<cr>zvzz", { desc = "Next quickfix item" })
-map("n", "[l", "<cmd>lprev<cr>zvzz", { desc = "Previous loclist item" })
-map("n", "]l", "<cmd>lnext<cr>zvzz", { desc = "Next loclist item" })
-
--- buffers
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
 map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Buffer Delete" })
 
