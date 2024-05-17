@@ -13,12 +13,12 @@ vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave", "InsertLeave" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  desc = "Quick close by gq",
+  desc = "Quick close by q",
   group = vim.api.nvim_create_augroup("hungdh-quick-close", { clear = true }),
-  pattern = { "help", "lspinfo", "man", "qf", "startuptime", "checkhealth", "git", "gitcommit" },
+  pattern = { "help", "lspinfo", "man", "qf", "startuptime", "checkhealth", "git", "fugitive*" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "gq", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
 
