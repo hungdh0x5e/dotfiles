@@ -50,8 +50,8 @@ map({ "n", "v" }, "<leader>d", [["_d]])
 map("x", "p", [["_dP]])
 
 -- copy, paste to system clipboard
-map({ "n", "v" }, "<leader>y", [["+y]])
-map("n", "<leader>Y", [["+Y]])
+-- map({ "n", "v" }, "<leader>y", [["+y]])
+-- map("n", "<leader>Y", [["+Y]])
 
 -- Resize window using arrow keys
 map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
