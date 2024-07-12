@@ -3,6 +3,8 @@
 -- Enable mouse support
 vim.opt.mouse = "a"
 
+vim.opt.clipboard = "unnamedplus"
+
 -- disable nvim intro
 vim.opt.shortmess:append "sI"
 

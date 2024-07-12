@@ -48,6 +48,7 @@ return {
           "vinshop",
           "-imports-order",
           "std,project,general,company",
+          "-rm-unused",
           "-output",
           "stdout",
           "$FILENAME",

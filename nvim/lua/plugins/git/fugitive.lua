@@ -3,7 +3,7 @@ return {
   cmd = { "G", "Git" },
   keys = {
     { "<leader>gs", "<cmd>Git<CR>", desc = "[G]it [s]tatus" },
-    { "<leader>gb", "<cmd>Git blame<CR>", desc = "[G]it [b]lame" },
+    { "<leader>ga", "<cmd>Git blame<CR>", desc = "[G]it [a]notate" },
     { "<leader>gla", "<cmd>Gllog!<CR>", desc = "[G]it [l]og [a]ll" },
     { "<leader>glf", "<cmd>0Gllog!<CR>", desc = "[G]it [l]og current [f]ile" },
     { "<leader>gd", "<cmd>Gvdiffsplit<CR>", desc = "[G]it [d]iff vertical" },
