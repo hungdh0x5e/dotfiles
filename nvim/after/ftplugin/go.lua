@@ -9,3 +9,7 @@ vim.api.nvim_create_user_command("GoModVendor", function()
   vim.cmd.write()
   vim.cmd.LspStart()
 end, {})
+
+vim.keymap.set("n", "<leader>ge", "<cmd>GoIfErr<CR>", { desc = "Gopher: Go if error" })
+vim.keymap.set("n", "<leader>gta", "<cmd>GoTagAdd<CR>", { desc = "Gopher: Go add tag" })
+vim.keymap.set("n", "<leader>gtr", "<cmd>GoTagRm<CR>", { desc = "Gopher: Go remove tag" })
