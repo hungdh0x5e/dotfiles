@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave", "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave" }, {
   desc = "Auto-save when switching window or leaving vim",
   group = vim.api.nvim_create_augroup("hungdh-auto-save", { clear = true }),
   command = ":silent! wa",
