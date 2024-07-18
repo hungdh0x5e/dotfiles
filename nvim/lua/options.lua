@@ -11,6 +11,7 @@ vim.opt.shortmess:append "sI"
 -- Always display the status line
 vim.opt.laststatus = 3
 vim.opt.showmode = false
+vim.opt.winbar = "%f %m"
 
 -- Indenting
 vim.opt.expandtab = true
