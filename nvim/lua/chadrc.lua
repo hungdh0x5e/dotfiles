@@ -27,7 +27,7 @@ M.ui = {
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "arrow",
-    order = { "mode", "file", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" }, --  "git",
+    order = { "mode", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" }, --  "git",
     modules = {
       file = function()
         local icon = "󰈚"

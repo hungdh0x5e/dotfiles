@@ -40,7 +40,7 @@ return {
 
     formatters = {
       goimports = {
-        args = { "-local", "vinshop" },
+        args = { "-local", "vinshop-dms" },
       },
       goimports_reviser = {
         command = "goimports-reviser",
@@ -50,7 +50,7 @@ return {
           "-company-prefixes",
           "gitlab.id.vin",
           "-project-name",
-          "vinshop",
+          "vinshop-dms",
           "-imports-order",
           "std,project,general,company",
           "-rm-unused",
