@@ -16,6 +16,7 @@ dotfiles=(
   rspec
   psqlrc
   ideavimrc
+  yamlfmt.yaml
 )
 
 nvimpath="~/.config/nvim"
