@@ -22,6 +22,7 @@ applications=(
 
     cowsay
     lolcat
+    bat
 )
 
 for i in ${applications[@]} ; do
