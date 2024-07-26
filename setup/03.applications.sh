@@ -6,14 +6,17 @@ applications=(
     evkey
 
     iterm2
-    dropbox
     bitwarden
-    slack
-    skype
     spotify
     telegram
     obsidian
     vlc
+
+    brave
+    firefox
+
+    karabiner-elements
+    logitech-options 
 )
 
 for i in ${applications[@]} ; do

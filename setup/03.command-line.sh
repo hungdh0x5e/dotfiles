@@ -10,12 +10,18 @@ applications=(
     wget
     tree
     lazygit
+    jq
+    jless
+    yq
 
     tmux
     reattach-to-user-namespace
 
     python3
     neovim
+
+    cowsay
+    lolcat
 )
 
 for i in ${applications[@]} ; do
