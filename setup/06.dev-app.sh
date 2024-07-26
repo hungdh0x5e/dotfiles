@@ -15,9 +15,9 @@ fancy_echo "Setting up Golang"
 brew install go@1.19
 mkdir -p $HOME/go/{bin,src,pkg}
 
-append_to_zshrc 'export GOPATH=$HOME/go' 1
-append_to_zshrc 'export GOROOT="$(brew --prefix golang)/libexec"' 1
-append_to_zshrc 'export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"' 1
+# append_to_zshrc 'export GOPATH=$HOME/go' 1
+# append_to_zshrc 'export GOROOT="$(brew --prefix golang)/libexec"' 1
+# append_to_zshrc 'export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"' 1
 
 fancy_echo "Installing Goland IDE"
 brew install goland
