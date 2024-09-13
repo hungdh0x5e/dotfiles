@@ -73,18 +73,18 @@ return {
     },
 
     -- virtual text for the debugger
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {
-        display_callback = function(variable)
-          if #variable.value > 15 then
-            return " " .. string.sub(variable.value, 1, 15) .. "... "
-          end
-
-          return " " .. variable.value
-        end,
-      },
-    },
+    -- {
+    --   "theHamsta/nvim-dap-virtual-text",
+    --   opts = {
+    --     display_callback = function(variable)
+    --       if #variable.value > 15 then
+    --         return " " .. string.sub(variable.value, 1, 15) .. "... "
+    --       end
+    --
+    --       return " " .. variable.value
+    --     end,
+    --   },
+    -- },
 
     -- For Golang
     "leoluz/nvim-dap-go",

@@ -2,7 +2,7 @@ return {
   "tpope/vim-fugitive",
   cmd = { "G", "Git" },
   keys = {
-    { "<leader>gs", "<cmd>vertical Git<CR>", desc = "[G]it [s]tatus" },
+    { "<leader>gs", "<cmd>Git<CR>", desc = "[G]it [s]tatus" },
     { "<leader>ga", "<cmd>Git blame<CR>", desc = "[G]it [a]notate" },
     { "<leader>gla", "<cmd>Gllog!<CR>", desc = "[G]it [l]og [a]ll" },
     { "<leader>glf", "<cmd>0Gllog!<CR>", desc = "[G]it [l]og current [f]ile" },

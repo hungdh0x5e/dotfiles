@@ -23,6 +23,7 @@ applications=(
     cowsay
     lolcat
     bat
+    diffutils
 )
 
 for i in ${applications[@]} ; do

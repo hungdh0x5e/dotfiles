@@ -12,7 +12,7 @@ return {
         "prettier",
         -- for golang
         "gopls",
-        "golangci-lint",
+        -- "golangci-lint",
       },
     },
   },
@@ -69,6 +69,10 @@ return {
         -- map("<leader>wl", function()
         --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         -- end, "List workspace folders")
+
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+          border = "rounded",
+        })
 
         -- setup signature popup
         if client.server_capabilities.signatureHelpProvider then

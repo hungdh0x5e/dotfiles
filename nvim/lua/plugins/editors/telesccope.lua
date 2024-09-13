@@ -36,7 +36,7 @@ return {
       { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "[F]ind [R]esume" },
     },
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim" },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
     opts = function()

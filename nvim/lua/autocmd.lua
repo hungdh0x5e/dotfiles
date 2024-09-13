@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd "setlocal nofoldenable"
     vim.api.nvim_buf_call(ctx.buf, function()
       vim.fn.matchadd("TelescopeParent", "\t.*$")
-      vim.api.nvim_set_hl(0, "TelescopeParent", { fg = "Comment", bg = "Comment", underline = true })
+      -- vim.api.nvim_set_hl(0, "TelescopeParent", { fg = "Comment", bg = "Comment", underline = true })
     end)
   end,
 })

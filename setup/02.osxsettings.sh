@@ -84,6 +84,5 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 fancy_echo_line "Finder - Allow text selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-fancy_echo_line "VSCode - Allow key repeat with Vim Mode"
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+fancy_echo_line "Allow key repeat with Vim Mode"
+defaults write -g ApplePressAndHoldEnabled -bool false
