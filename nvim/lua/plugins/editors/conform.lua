@@ -18,7 +18,7 @@ return {
 
     formatters_by_ft = {
       lua = { "stylua" },
-      go = { "goimports", "gofmt", "goimports_reviser" },
+      go = { "gofmt", "goimports_reviser" },
       json = { "jq" },
       yaml = { "yamlfmt" },
       css = { "prettier" },
@@ -39,9 +39,6 @@ return {
     end,
 
     formatters = {
-      goimports = {
-        args = { "-local", "vinshop-dms" },
-      },
       goimports_reviser = {
         command = "goimports-reviser",
         stdin = true,
@@ -50,7 +47,7 @@ return {
           "-company-prefixes",
           "gitlab.id.vin",
           "-project-name",
-          "vinshop-dms",
+          "vinshop",
           "-imports-order",
           "std,project,general,company",
           "-rm-unused",

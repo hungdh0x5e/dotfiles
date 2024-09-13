@@ -89,8 +89,6 @@
 [includeIf "gitdir:~/go/src/gitlab.id.vin/"]
   path = ~/.gitconfig-work
 
-[url "git@gitlab.id.vin:"]
-  insteadOf = https://gitlab.id.vin/
 [init]
 	defaultBranch = develop
 [diff]
