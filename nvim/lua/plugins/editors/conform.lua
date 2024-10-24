@@ -23,6 +23,7 @@ return {
       yaml = { "yamlfmt" },
       css = { "prettier" },
       html = { "prettier" },
+      javascript = { "deno_fmt" },
     },
 
     format_on_save = function(bufnr)
