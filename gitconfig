@@ -28,7 +28,7 @@
 
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+	gpgsign = false
 
 [include]
   path = ~/.gitconfig.local
