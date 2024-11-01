@@ -10,7 +10,7 @@ applications=(
     wget
     tree
     lazygit
-    jq
+    gojq
     jless
     yq
 

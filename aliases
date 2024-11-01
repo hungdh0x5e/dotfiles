@@ -31,6 +31,7 @@ alias dcw="docker-compose exec web bash"
 alias dcb="docker-compose exec db bash"
 
 alias lg="lazygit"
+alias jq="gojq"
 alias yless="jless --yaml"
 
 # For git
