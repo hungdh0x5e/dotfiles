@@ -18,14 +18,14 @@ return {
         end,
         desc = "Harpoon Add to bookmarks",
       },
-      {
-        "<leader>hd",
-        function()
-          require("harpoon"):list():remove()
-          vim.notify("Deleted from Harpoon", vim.log.levels.INFO)
-        end,
-        desc = "Harpoon Delete from bookmarks",
-      },
+      -- {
+      --   "<leader>hd",
+      --   function()
+      --     require("harpoon"):list():remove()
+      --     vim.notify("Deleted from Harpoon", vim.log.levels.INFO)
+      --   end,
+      --   desc = "Harpoon Delete from bookmarks",
+      -- },
       {
         "<leader>hl",
         function()

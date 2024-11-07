@@ -38,7 +38,7 @@ return {
       config = function(_, opts)
         require("notify").setup(opts)
         vim.notify = require "notify"
-        vim.notify("Welcome back, hungdh", vim.log.levels.INFO, { title = "Intro" })
+        -- vim.notify("Welcome back, hungdh", vim.log.levels.INFO, { title = "Intro" })
       end,
     },
   },

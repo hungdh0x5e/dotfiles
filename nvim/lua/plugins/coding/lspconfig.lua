@@ -41,19 +41,19 @@ return {
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
         end
 
-        map("<leader>gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        map("<leader>gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        -- map("<leader>gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
         -- map("<leader>gt", vim.lsp.buf.type_definition, "[G]oto [T]ype definition")
         map("<leader>gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         map("<leader>gr", vim.lsp.buf.references, "[G]oto [R]eferences")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
         -- key map with Telescope
-        map("gd", "<cmd>Telescope lsp_definitions<CR>", "[G]oto [D]efinition")
+        -- map("gd", "<cmd>Telescope lsp_definitions<CR>", "[G]oto [D]efinition")
         map("gi", "<cmd>Telescope lsp_implementations<CR>", "[G]oto [I]mplementation")
         map("gr", "<cmd>Telescope lsp_references<CR>", "[G]oto [R]eferences")
         -- map("gt", "<cmd>Telescope lsp_type_definitions<CR>", "[F]ind [D]efinition")
-        map("<leader>fs", "<cmd>Telescope lsp_document_symbols symbol_width=50 <CR>", "[F]ind [S]ymbols Buffer")
+        map("<leader>fs", "<cmd>Telescope lsp_document_symbols symbol_width=50 <CR>", "[F]ind [s]ymbols Buffer")
         map("<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "[F]ind [S]ymbols")
         map("<leader>fd", "<cmd>Telescope diagnostics<CR>", "[F]ind [D]iagnostics")
 
