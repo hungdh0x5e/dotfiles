@@ -42,11 +42,17 @@ return {
       end, { expr = true })
 
       -- Actions
-      map("n", "<leader>rh", gs.reset_hunk, { desc = "Git reset hunk" })
-      map("v", "<leader>rh", function()
+      map("n", "<leader>hs", gs.stage_hunk, { desc = "Git [H]unk [S]tage" })
+      map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Git [H]unk [U]ndo stage" })
+      map("n", "<leader>hr", gs.reset_hunk, { desc = "Git [H]unk [R]eset" })
+      map("n", "<leader>hd", gs.diffthis, { desc = "Git [H]unk [D]iff" })
+      map("n", "<leader>hp", gs.preview_hunk, { desc = "Git [H]unk [P]review" })
+      map("v", "<leader>hs", function()
+        gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+      end)
+      map("v", "<leader>hr", function()
         gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-      end, { desc = "Git reset hunk" })
-      map("n", "<leader>ph", gs.preview_hunk, { desc = "Git preview hunk" })
+      end, { desc = "Git [H]unk [R]eset" })
       map("n", "<leader>gb", function()
         gs.blame_line { full = true }
       end, { desc = "Git blame preview" })
