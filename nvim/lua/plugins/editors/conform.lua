@@ -57,7 +57,7 @@ return {
           "-project-name",
           "vinshop",
           "-imports-order",
-          "std,project,general,company",
+          "std,general,company,project",
           "-rm-unused",
           "-output",
           "stdout",
