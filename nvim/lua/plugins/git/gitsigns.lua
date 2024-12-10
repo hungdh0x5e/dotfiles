@@ -54,7 +54,7 @@ return {
         gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
       end, { desc = "Git [H]unk [R]eset" })
       map("n", "<leader>gb", function()
-        gs.blame_line { full = true }
+        gs.blame_line {} -- full = true
       end, { desc = "Git blame preview" })
       map("n", "<leader>gt", gs.toggle_current_line_blame, { desc = "Git toggle blame" })
 

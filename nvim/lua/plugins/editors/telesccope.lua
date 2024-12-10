@@ -4,11 +4,49 @@ local M = {}
 ---@param path string
 function M.filenameFirst(_, path)
   local tail = vim.fs.basename(path)
-  local parent = vim.fs.dirname(path)
-  if parent == "." then
-    return tail
+  local full_parent = vim.fs.dirname(path)
+
+  -- Find the Git root directory
+  local git_root = vim.fs.find(".git", { path = full_parent, upward = true })[1]
+  if git_root then
+    git_root = vim.fs.dirname(git_root)
   end
-  return string.format("%s\t\t%s", tail, parent)
+
+  -- Determine the project root using LSP if Git root is not found
+  local project_root = git_root
+  if not project_root then
+    local lsp_clients = vim.lsp.get_clients()
+    for _, client in ipairs(lsp_clients) do
+      if client.config.root_dir then
+        project_root = client.config.root_dir
+        break
+      end
+    end
+  end
+
+  -- Fallback to the current working directory if no Git or LSP root
+  project_root = project_root or vim.fn.getcwd()
+
+  -- Adjust parent path relative to the project root
+  local relative_parent = full_parent:gsub("^" .. vim.pesc(project_root) .. "/", "")
+
+  if relative_parent == "" then
+    relative_parent = "."
+  end
+
+  path = string.format("%s (%s)", tail, relative_parent)
+
+  local highlights = {
+    {
+      {
+        #tail + 1, -- highlight start position
+        #path, -- highlight end position
+      },
+      "Comment", -- highlight group name
+    },
+  }
+
+  return path, highlights
 end
 
 -- Telescope
@@ -36,7 +74,7 @@ return {
       { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "[F]ind [R]esume" },
     },
     dependencies = {
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
     opts = function()
