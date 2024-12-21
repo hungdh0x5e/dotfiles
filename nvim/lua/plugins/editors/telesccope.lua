@@ -53,26 +53,26 @@ end
 return {
   {
     "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]iles respects .gitignore" },
-      { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "[F]ind current [W]ord" },
-      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "[F]ind by [G]rep" },
-      { "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "[F]ind [O]ldfiles" },
-      {
-        "<leader>fa",
-        "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-        desc = "[F]ind [A]ll files",
-      },
-
-      { "<leader><leader>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "[F]ind [B]uffers" },
-      { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "[F]ind [C]ommand history" },
-      { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "[F]ind [H]elp" },
-      { "<leader>th", "<cmd>Telescope themes<cr>", desc = "Change themes" },
-      { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "[F]ind [Q]uickfix" },
-      { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "[F]ind [K]eymaps" },
-      { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "[F]ind in current buffer" },
-      { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "[F]ind [R]esume" },
-    },
+    -- keys = {
+    --   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]iles respects .gitignore" },
+    --   { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "[F]ind current [W]ord" },
+    --   { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "[F]ind by [G]rep" },
+    --   { "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "[F]ind [O]ldfiles" },
+    --   {
+    --     "<leader>fa",
+    --     "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+    --     desc = "[F]ind [A]ll files",
+    --   },
+    --
+    --   { "<leader><leader>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "[F]ind [B]uffers" },
+    --   { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "[F]ind [C]ommand history" },
+    --   { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "[F]ind [H]elp" },
+    --   { "<leader>th", "<cmd>Telescope themes<cr>", desc = "Change themes" },
+    --   { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "[F]ind [Q]uickfix" },
+    --   { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "[F]ind [K]eymaps" },
+    --   { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "[F]ind in current buffer" },
+    --   { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "[F]ind [R]esume" },
+    -- },
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-ui-select.nvim" },
