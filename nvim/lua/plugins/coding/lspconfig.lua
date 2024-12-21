@@ -48,15 +48,6 @@ return {
         map("<leader>gr", vim.lsp.buf.references, "[G]oto [R]eferences")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-        -- key map with Telescope
-        -- map("gd", "<cmd>Telescope lsp_definitions<CR>", "[G]oto [D]efinition")
-        map("gi", "<cmd>Telescope lsp_implementations<CR>", "[G]oto [I]mplementation")
-        map("gr", "<cmd>Telescope lsp_references<CR>", "[G]oto [R]eferences")
-        -- map("gt", "<cmd>Telescope lsp_type_definitions<CR>", "[F]ind [D]efinition")
-        map("<leader>fs", "<cmd>Telescope lsp_document_symbols symbol_width=50 <CR>", "[F]ind [s]ymbols Buffer")
-        map("<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "[F]ind [S]ymbols")
-        map("<leader>fd", "<cmd>Telescope diagnostics<CR>", "[F]ind [D]iagnostics")
-
         -- rename function
         map("<leader>ra", function()
           require "nvchad.lsp.renamer"()

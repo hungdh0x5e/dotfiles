@@ -55,7 +55,7 @@ return {
           "-company-prefixes",
           "gitlab.id.vin",
           "-project-name",
-          "vinshop",
+          "sales-app-backend-hydra",
           "-imports-order",
           "std,general,company,project",
           "-rm-unused",
