@@ -15,7 +15,19 @@ vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave" }, {
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Quick close by q",
   group = vim.api.nvim_create_augroup("hungdh-quick-close", { clear = true }),
-  pattern = { "help", "lspinfo", "man", "qf", "startuptime", "checkhealth", "git", "fugitive*", "dap-*" },
+  pattern = {
+    "help",
+    "lspinfo",
+    "man",
+    "qf",
+    "startuptime",
+    "checkhealth",
+    "git",
+    "fugitive*",
+    "dap-*",
+    "fzf",
+    "lazygit",
+  },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })

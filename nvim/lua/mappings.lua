@@ -62,6 +62,12 @@ map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wid
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 
+map("t", "<C-x>", "<C-\\><C-n>", { desc = "[Terminal] escape terminal mode" })
+-- vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]])
+-- vim.keymap.set("t", "<C-j>", [[<C-\><C-N><C-w>j]])
+-- vim.keymap.set("t", "<C-k>", [[<C-\><C-N><C-w>k]])
+-- vim.keymap.set("t", "<C-l>", [[<C-\><C-N><C-w>l]])
+
 map(
   { "n", "v" },
   "<leader>S",
