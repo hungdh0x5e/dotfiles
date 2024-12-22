@@ -25,7 +25,7 @@ return {
     -- { "default-title" },
     winopts = {
       backdrop = 100,
-      treesitter = true,
+      treesitter = false,
       preview = {
         default = "bat",
       },
