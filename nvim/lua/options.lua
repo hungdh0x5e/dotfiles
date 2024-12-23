@@ -65,7 +65,7 @@ vim.opt.splitbelow = true
 -- Persistent undo
 -- Don't forget mkdir folder $HOME/.vim/undo
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv "HOME" .. "/.config/nvim/undo"
+vim.opt.undodir = os.getenv "HOME" .. "/.nvim/undo"
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
 
