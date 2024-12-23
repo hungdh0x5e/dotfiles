@@ -5,7 +5,8 @@ fancy_echo "Installing application like: Iterm2, Chrome, Dropbox, Skype ..."
 applications=(
     evkey
 
-    iterm2
+    alacritty
+    wezterm
     bitwarden
     spotify
     telegram
