@@ -24,6 +24,7 @@ applications=(
     lolcat
     bat
     diffutils
+    taplo
 )
 
 for i in ${applications[@]} ; do
