@@ -29,7 +29,6 @@ return {
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
       { "folke/neodev.nvim", opts = {} },
-
       -- Useful status updates for LSP.
       -- { "j-hui/fidget.nvim", opts = {} },
     },
@@ -78,7 +77,7 @@ return {
       end
 
       -- local on_attach = require("nvchad.configs.lspconfig").on_attach
-      -- local on_init = require("nvchad.configs.lspconfig").on_init
+      local on_init = require("nvchad.configs.lspconfig").on_init
       local capabilities = require("nvchad.configs.lspconfig").capabilities
 
       local lspconfig = require "lspconfig"
