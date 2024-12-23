@@ -1,10 +1,10 @@
 [general]
-import = [ "~/.config/alacritty/themes/themes/gruvbox_dark.toml" ]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [window]
 title = "Code for fo0d"
 opacity = 0.80
-padding = {x = 1, y = 1}
+padding = { x = 1, y = 1 }
 dynamic_padding = true
 decorations = "Full"
 
@@ -15,49 +15,51 @@ multiplier = 3
 [font]
 size = 15.0
 normal.family = "JetBrainsMono Nerd Font"
+normal.style = "Regular"
 bold.family = "JetBrainsMono Nerd Font"
+bold.style = "Regular"
 italic.family = "JetBrainsMono Nerd Font"
+italic.style = "Regular"
 
 [cursor]
-style = { blinking = "Off", shape="Beam"}
+style = { blinking = "Off", shape = "Beam" }
 
 [[keyboard.bindings]] # <command>1 -> <Ctrl-a>1
 key = "1"
 mods = "Command"
-chars= "\u0001\u0031"
+chars = "\u0001\u0031"
 
 [[keyboard.bindings]]
 key = "2"
 mods = "Command"
-chars= "\u0001\u0032"
+chars = "\u0001\u0032"
 
 [[keyboard.bindings]]
 key = "3"
 mods = "Command"
-chars= "\u0001\u0033"
+chars = "\u0001\u0033"
 
 [[keyboard.bindings]]
 key = "4"
 mods = "Command"
-chars= "\u0001\u0034"
+chars = "\u0001\u0034"
 
 [[keyboard.bindings]]
 key = "5"
 mods = "Command"
-chars= "\u0001\u0035"
+chars = "\u0001\u0035"
 
 [[keyboard.bindings]]
 key = "j"
 mods = "Command"
-chars= "\u0001\u006a"
+chars = "\u0001\u006a"
 
 [[keyboard.bindings]]
 key = "p"
 mods = "Command"
-chars= "\u0001\u0028"
+chars = "\u0001\u0028"
 
 [[keyboard.bindings]]
 key = "n"
 mods = "Command"
-chars= "\u0001\u0029"
-
+chars = "\u0001\u0029"

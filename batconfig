@@ -3,7 +3,7 @@
 --theme="gruvbox-dark"
 --color=always
 --style=header,grid
---line-range :300
+--line-range :1000
 --italic-text=always
 
 # Uncomment the following line if you are using less version >= 551 and want to
