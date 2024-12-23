@@ -2,21 +2,23 @@
 source ~/dotfiles/setup/functions.sh
 
 dotfiles=(
-  zsh
-  bin
+  alacritty.toml
   aliases
+  bin
   fzf.zsh
-  p10k.zsh
   gitconfig
   gitmessage
+  ideavimrc
+  nvim
+  p10k.zsh
+  psqlrc
+  rspec
   tmux.conf
+  wezterm.lua
+  yamlfmt.yaml
+  zsh
   zshenv
   zshrc
-  nvim
-  rspec
-  psqlrc
-  ideavimrc
-  yamlfmt.yaml
 )
 
 nvimpath="~/.config/nvim"
