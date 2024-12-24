@@ -45,7 +45,7 @@ return {
         -- map("<leader>gt", vim.lsp.buf.type_definition, "[G]oto [T]ype definition")
         map("<leader>gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         map("<leader>gr", vim.lsp.buf.references, "[G]oto [R]eferences")
-        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        -- map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
         -- rename function
         map("<leader>ra", function()
