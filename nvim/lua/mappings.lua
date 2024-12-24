@@ -62,12 +62,6 @@ map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wid
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 
-map("t", "<C-x>", "<C-\\><C-n>", { desc = "[Terminal] escape terminal mode" })
--- vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]])
--- vim.keymap.set("t", "<C-j>", [[<C-\><C-N><C-w>j]])
--- vim.keymap.set("t", "<C-k>", [[<C-\><C-N><C-w>k]])
--- vim.keymap.set("t", "<C-l>", [[<C-\><C-N><C-w>l]])
-
 map(
   { "n", "v" },
   "<leader>S",
@@ -113,3 +107,22 @@ map("n", "yfr", function()
   vim.fn.setreg("+", filename)
   vim.notify("Copied " .. filename, vim.log.levels.INFO)
 end, { desc = "yank file relative path" })
+
+map({ "n", "v", "i" }, "<C-x><C-f>", function()
+  require("fzf-lua").complete_path { file_icons = true }
+end, { silent = true, desc = "Fuzzy complete path" })
+
+map({ "n", "v", "i" }, "<C-x><C-l>", function()
+  require("fzf-lua").complete_line()
+end, { silent = true, desc = "Fuzzy complete line" })
+
+-- Terminal mappings
+map("t", "<C-x>", "<C-\\><C-n>", { desc = "[Terminal] escape terminal mode" })
+map("t", "<C-w>", [[<C-\><C-n><C-w>]], {})
+-- map("t", "<M-r>", [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true })
+
+-- Search and Replace
+-- 'c.' for word, 'c>' for WORD
+-- 'c.' in visual mode for selection
+map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "search and replace word under cursor" })
+map("n", "c>", [[:%s/\V<C-r><C-a>//g<Left><Left>]], { desc = "search and replace WORD under cursor" })

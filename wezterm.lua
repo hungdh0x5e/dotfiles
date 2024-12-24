@@ -16,15 +16,16 @@ config.window_decorations = "RESIZE"
 
 config.enable_scroll_bar = false
 config.window_padding = {
-	left = 0,
+	left = 5,
 	right = 0,
-	top = 0,
+	top = 5,
 	bottom = 0,
 }
 
 config.keys = {
 	{ key = "p", mods = "CMD", action = act.SendString("\x01\x28") }, -- tmux previous client
 	{ key = "n", mods = "CMD", action = act.SendString("\x01\x29") }, -- tmux next client
+	{ key = "j", mods = "CMD", action = act.SendString("\x01\x6a") }, -- tmux next client
 }
 
 -- tmux navigating window by index
