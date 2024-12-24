@@ -60,7 +60,10 @@ return {
     },
     keymap = {
       fzf = {
+        ["ctrl-u"] = "half-page-up",
+        ["ctrl-d"] = "half-page-down",
         ["ctrl-e"] = "preview-down",
+        ["ctrl-x"] = "jump",
         ["ctrl-y"] = "preview-up",
         ["ctrl-q"] = "select-all+accept",
       },

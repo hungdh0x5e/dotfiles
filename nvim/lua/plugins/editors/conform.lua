@@ -48,23 +48,27 @@ return {
     end,
 
     formatters = {
-      goimports_reviser = {
-        command = "goimports-reviser",
-        stdin = true,
-        inherit = false,
-        args = {
-          "-company-prefixes",
-          "gitlab.id.vin",
-          "-project-name",
-          "sales-app-backend-hydra",
-          "-imports-order",
-          "std,general,company,project",
-          "-rm-unused",
-          "-output",
-          "stdout",
-          "$FILENAME",
-        },
-      },
+      goimports_reviser = function(_)
+        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+
+        return {
+          command = "goimports-reviser",
+          stdin = true,
+          inherit = false,
+          args = {
+            "-company-prefixes",
+            "gitlab.id.vin",
+            "-project-name",
+            project_name,
+            "-imports-order",
+            "std,general,company,project",
+            "-rm-unused",
+            "-output",
+            "stdout",
+            "$FILENAME",
+          },
+        }
+      end,
     },
   },
 }
