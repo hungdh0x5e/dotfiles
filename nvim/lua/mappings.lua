@@ -117,7 +117,7 @@ map({ "n", "v", "i" }, "<C-x><C-l>", function()
 end, { silent = true, desc = "Fuzzy complete line" })
 
 -- Terminal mappings
-map("t", "<C-x>", "<C-\\><C-n>", { desc = "[Terminal] escape terminal mode" })
+map("t", "<C-[>", "<C-\\><C-n>", { desc = "[Terminal] escape terminal mode" })
 map("t", "<C-w>", [[<C-\><C-n><C-w>]], {})
 -- map("t", "<M-r>", [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true })
 
