@@ -44,7 +44,7 @@ map("n", "c", [["_d]])
 map("n", "C", [["_D]])
 map({ "n", "v" }, "x", [["_x]])
 map({ "n", "v" }, "X", [["_X]])
-map({ "n", "v" }, "<leader>d", [["_d]])
+-- map({ "n", "v" }, "<leader>d", [["_d]])
 
 -- paste without override clipboard in visual mode
 map("x", "p", [["_dP]])

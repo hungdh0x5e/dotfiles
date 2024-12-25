@@ -24,7 +24,7 @@ return {
     "echasnovski/mini.files",
     opts = {
       mappings = {
-        close = "<C-c>",
+        close = "q",
         go_in = "l",
         go_in_plus = "<CR>",
         go_out = "h",
@@ -34,7 +34,7 @@ return {
     },
     keys = {
       {
-        "<leader>,",
+        "<leader>-",
         function()
           require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
         end,
@@ -52,7 +52,7 @@ return {
       require("mini.files").setup(opts)
 
       local show_dotfiles = true
-      local filter_show = function(fs_entry)
+      local filter_show = function(_)
         return true
       end
       local filter_hide = function(fs_entry)

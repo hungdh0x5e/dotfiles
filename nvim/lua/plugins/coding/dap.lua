@@ -1,3 +1,87 @@
+local BP_DB_PATH = vim.fn.stdpath "data" .. "/dap_breakpoints.json"
+
+local M = {}
+
+M._load_breakpoints = function()
+  local fp = io.open(BP_DB_PATH, "r")
+  if not fp then
+    return
+  end
+  local json = fp:read "*a"
+  local ok, bps = pcall(vim.json.decode, json)
+  if not ok or type(bps) ~= "table" then
+    vim.notify(string.format("Error parsing breakpoint json-db: %s", bps), vim.log.levels.WARN)
+    return
+  end
+  local path2bufnr = {}
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    local path = vim.api.nvim_buf_get_name(bufnr)
+    if type(bps[path]) == "table" and not vim.tbl_isempty(bps[path]) then
+      path2bufnr[path] = bufnr
+    end
+  end
+  -- no breakpoints in current buflist
+  if vim.tbl_isempty(path2bufnr) then
+    return
+  end
+  local bp_count = 0
+  for path, buf_bps in pairs(bps) do
+    local bufnr = tonumber(path2bufnr[path])
+    if bufnr then
+      for _, bp in pairs(buf_bps) do
+        bp_count = bp_count + 1
+        local line = bp.line
+        local opts = {
+          condition = bp.condition,
+          log_message = bp.logMessage,
+          hit_condition = bp.hitCondition,
+        }
+        require("dap.breakpoints").set(opts, bufnr, line)
+      end
+    end
+  end
+  -- Load bps into active session (not just the UI)
+  local session = require("dap").session()
+  if session and bp_count > 0 then
+    session:set_breakpoints(require("dap.breakpoints").get())
+  end
+  vim.notify(
+    string.format("Loaded %d breakpoints in %d bufers.", bp_count, vim.tbl_count(path2bufnr)),
+    vim.log.levels.INFO
+  )
+end
+
+M._store_breakpoints = function()
+  local fp = io.open(BP_DB_PATH, "r")
+  local json = fp and fp:read "*a" or "{}"
+  local ok, bps = pcall(vim.json.decode, json)
+  if not ok or type(bps) ~= "table" then
+    bps = {}
+  end
+  local bp_count = 0
+  local breakpoints_by_buf = require("dap.breakpoints").get()
+  for bufnr, buf_bps in pairs(breakpoints_by_buf) do
+    bp_count = bp_count + #buf_bps
+    bps[vim.api.nvim_buf_get_name(bufnr)] = buf_bps
+  end
+  -- If buffer has no breakpoints, remove from the db
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if not breakpoints_by_buf[bufnr] then
+      local path = vim.api.nvim_buf_get_name(bufnr)
+      bps[path] = nil
+    end
+  end
+  fp = io.open(BP_DB_PATH, "w")
+  if fp then
+    fp:write(vim.json.encode(bps))
+    fp:close()
+    vim.notify(
+      string.format("Stored %d breakpoints in %d bufers.", bp_count, vim.tbl_count(breakpoints_by_buf)),
+      vim.log.levels.INFO
+    )
+  end
+end
+
 return {
   "mfussenegger/nvim-dap",
   -- stylua: ignore
@@ -14,6 +98,10 @@ return {
     { "<leader>dp", function() require("dap").pause() end, desc = "Debug: Pause" },
     { "<leader>dt", function() require("dap").terminate() end, desc = "Debug: Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Debug: Widgets" },
+
+  -- Load/Store breakpoint in a json-db
+    { "<leader>d-", function () M._load_breakpoints() end, mode={"n", "v"}, desc="DAP load breakpoints"},
+    { "<leader>d+", function () M._store_breakpoints() end, mode={"n", "v"}, desc="DAP store breakpoints"},
   },
 
   dependencies = {
@@ -32,22 +120,22 @@ return {
         layouts = {
           {
             elements = {
-              { id = "breakpoints", size = 0.2 },
-              { id = "scopes", size = 0.6 },
+              { id = "breakpoints", size = 0.15 },
+              { id = "scopes", size = 0.55 },
               -- { id = "stacks", size = 0.25 },
-              { id = "watches", size = 0.2 },
+              { id = "watches", size = 0.3 },
             },
             position = "left",
             size = 40,
           },
-          {
-            elements = {
-              { id = "repl", size = 0.5 },
-              { id = "console", size = 0.5 },
-            },
-            position = "bottom",
-            size = 10,
-          },
+          -- {
+          --   elements = {
+          --     { id = "repl", size = 0.5 },
+          --     { id = "console", size = 0.5 },
+          --   },
+          --   position = "bottom",
+          --   size = 10,
+          -- },
         },
       },
       config = function(_, opts)
@@ -91,9 +179,31 @@ return {
   },
 
   config = function()
-    vim.api.nvim_set_hl(0, "DapStopped", { default = true, link = "Visual" })
+    -- Lazy load fzf-lua to register_ui_select
+    require "fzf-lua"
+
+    -- Set logging level
+    require("dap").set_log_level "DEBUG"
+
+    local signs = { "DapBreakpoint", "DapBreakpointCondition", "DapLogPoint", "DapStopped", "DapBreakpointRejected" }
+    for _, item in ipairs(signs) do
+      -- use text default
+      vim.fn.sign_define(item, { texthl = "CursorLineNr", linehl = "Visual", numhl = "CursorLineNr" })
+    end
 
     -- Install golang specific config
-    require("dap-go").setup {}
+    require("dap-go").setup {
+      delve = {
+        port = "38697",
+      },
+      dap_configurations = {
+        {
+          type = "go",
+          name = "Attach remote",
+          mode = "remote",
+          request = "attach",
+        },
+      },
+    }
   end,
 }
