@@ -4,8 +4,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
-      -- stylua: ignore
-      { "<leader>-", function() require("oil").toggle_float() end, desc = "Open Oil in floating window", },
     },
     config = function()
       require("oil").setup {

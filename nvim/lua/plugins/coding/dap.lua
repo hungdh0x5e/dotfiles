@@ -88,13 +88,12 @@ return {
   keys = {
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Debug: Set Breakpoint" },
+    {"<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc="Debug: Log point"},
     { "<leader>dc", function() require("dap").continue() end, desc = "Debug: Continue" },
     { "<leader>di", function() require("dap").step_into() end, desc = "Debug: Step Into" },
     { "<leader>do", function() require("dap").step_out() end, desc = "Debug: Step Out" },
     { "<leader>dn", function() require("dap").step_over() end, desc = "Debug: Step Over" },
-    { "<leader>dj", function() require("dap").down() end, desc = "Debug: Down" },
-    { "<leader>dk", function() require("dap").up() end, desc = "Debug: Up" },
-    { "<leader>dl", function() require("dap").run_last() end, desc = "Debug: Run Last" },
+    { "<leader>dr", function() require("dap").run_last() end, desc = "Debug: Run Last" },
     { "<leader>dp", function() require("dap").pause() end, desc = "Debug: Pause" },
     { "<leader>dt", function() require("dap").terminate() end, desc = "Debug: Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Debug: Widgets" },
@@ -119,23 +118,23 @@ return {
       opts = {
         layouts = {
           {
+            position = "left",
+            size = 40,
             elements = {
               { id = "breakpoints", size = 0.15 },
               { id = "scopes", size = 0.55 },
               -- { id = "stacks", size = 0.25 },
               { id = "watches", size = 0.3 },
             },
-            position = "left",
-            size = 40,
           },
-          -- {
-          --   elements = {
-          --     { id = "repl", size = 0.5 },
-          --     { id = "console", size = 0.5 },
-          --   },
-          --   position = "bottom",
-          --   size = 10,
-          -- },
+          {
+            position = "bottom",
+            size = 12,
+            elements = {
+              { id = "repl", size = 1.0 },
+              -- { id = "console", size = 0.5 },
+            },
+          },
         },
       },
       config = function(_, opts)
@@ -185,10 +184,18 @@ return {
     -- Set logging level
     require("dap").set_log_level "DEBUG"
 
-    local signs = { "DapBreakpoint", "DapBreakpointCondition", "DapLogPoint", "DapStopped", "DapBreakpointRejected" }
+    local signs = {
+      { name = "DapBreakpoint", text = "B" },
+      { name = "DapBreakpointCondition", text = "C" },
+      { name = "DapLogPoint", text = "L" },
+      { name = "DapStopped", text = "→" },
+      { name = "DapBreakpointRejected", text = "R" },
+    }
     for _, item in ipairs(signs) do
-      -- use text default
-      vim.fn.sign_define(item, { texthl = "CursorLineNr", linehl = "Visual", numhl = "CursorLineNr" })
+      vim.fn.sign_define(
+        item.name,
+        { text = item.text, texthl = "CursorLineNr", linehl = "Visual", numhl = "CursorLineNr" }
+      )
     end
 
     -- Install golang specific config

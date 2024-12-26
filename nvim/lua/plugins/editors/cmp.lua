@@ -3,6 +3,10 @@ return {
   opts = function()
     local options = require "nvchad.configs.cmp"
 
+    table.insert(options.sources, {
+      name = "lazydev",
+      group_index = 0,
+    })
     -- options.completion.completeopt = { "menu", "menuone", "noselect" }
 
     local compare = require "cmp.config.compare"

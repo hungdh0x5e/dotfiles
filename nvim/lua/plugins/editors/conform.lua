@@ -48,8 +48,19 @@ return {
     end,
 
     formatters = {
-      goimports_reviser = function(_)
-        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+      goimports_reviser = function(bufnr)
+        local project_root = vim.fn.getcwd()
+
+        -- Determine the project root using LSP
+        local lsp_clients = vim.lsp.get_clients { bufnr = bufnr }
+        for _, client in ipairs(lsp_clients) do
+          if client.config.root_dir then
+            project_root = client.config.root_dir
+            break
+          end
+        end
+
+        local project_name = vim.fn.fnamemodify(project_root, ":t")
 
         return {
           command = "goimports-reviser",
