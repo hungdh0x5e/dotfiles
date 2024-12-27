@@ -108,7 +108,7 @@ return {
   config = function(_, opts)
     require("fzf-lua").setup(opts)
     require("fzf-lua").register_ui_select(function(o, items)
-      local min_h, max_h = 0.15, 0.70
+      local min_h, max_h = 0.25, 0.70
       local preview = o.kind == "codeaction" and 0.20 or 0
       local h = (#items + 4) / vim.o.lines + preview
       if h < min_h then

@@ -81,20 +81,6 @@ map("n", "<leader>wk", function()
   vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "Whichkey query lookup" })
 
-map("n", "<leader>rr", function()
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 C-c ENTER' ]]
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 clear ENTER' ]]
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 "root && cd cmd/vinshop-public && go run ." ENTER' ]]
-  vim.notify("Reloading vinshop-public", vim.log.levels.INFO)
-end, { desc = "VinShop: restart service" })
-
-map("n", "<leader>rd", function()
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 C-c ENTER' ]]
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 clear ENTER' ]]
-  vim.cmd [[ :exe 'silent !tmux send-keys -t editor.2 "root && cd cmd/vinshop-dms && go run ." ENTER' ]]
-  vim.notify("Reloading vinshop-dms", vim.log.levels.INFO)
-end, { desc = "VinShop DMS: restart service" })
-
 --- copy file name to the clipboard
 map("n", "yff", function()
   local filename = vim.api.nvim_buf_get_name(0)

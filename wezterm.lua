@@ -12,7 +12,7 @@ config.window_background_opacity = 0.85
 
 -- maximum display for terminal
 config.enable_tab_bar = false
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 config.enable_scroll_bar = false
 config.window_padding = {
