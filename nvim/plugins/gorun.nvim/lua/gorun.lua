@@ -3,6 +3,7 @@ local M = {}
 ---@class gorun.Config
 ---@field name string: name of run
 ---@field cwd string: current directory
+---@field buildFlags string: build flags
 ---@field tmux_target string: which to running. Format: {sessionName}:{windowName}.{panelIndex} or {windowName}.{panelIndex}
 
 --- Show UI to select configurations
@@ -38,12 +39,13 @@ function M.on_choice(item, _)
   local commands = {
     "C-c",
     string.format("cd %s", item.cwd),
+    string.format("go build %s -o %s", item.buildFlags, item.name),
     "clear",
-    "go run .",
+    string.format("./%s", item.name),
   }
 
   for _, command in ipairs(commands) do
-    vim.cmd(string.format([[exe 'silent !tmux send-keys -t %s "%s" ENTER']], item.tmux_target, command))
+    vim.cmd(string.format([[exe 'silent !tmux send-keys -t %s %q ENTER']], item.tmux_target, command))
   end
 end
 
@@ -107,6 +109,7 @@ function M.load_config_file(path)
       name = configRaw.name,
       cwd = configRaw.cwd,
       tmux_target = configRaw.tmux_target,
+      buildFlags = configRaw.buildFlags or "",
     }
 
     table.insert(result, temp)

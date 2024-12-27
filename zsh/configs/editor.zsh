@@ -1,2 +1,3 @@
 export VISUAL=nvim
-export EDITOR=$VISUAL
+export EDITOR=nvim
+export TERMINAL=wezterm

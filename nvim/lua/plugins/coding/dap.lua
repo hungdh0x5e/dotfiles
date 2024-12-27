@@ -90,6 +90,7 @@ return {
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Debug: Set Breakpoint" },
     {"<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, desc="Debug: Log point"},
     { "<leader>dc", function() require("dap").continue() end, desc = "Debug: Continue" },
+    { "<leader>dd", function() require("dap").disconnect() end, desc = "Debug: Disconnect" },
     { "<leader>di", function() require("dap").step_into() end, desc = "Debug: Step Into" },
     { "<leader>do", function() require("dap").step_out() end, desc = "Debug: Step Out" },
     { "<leader>dn", function() require("dap").step_over() end, desc = "Debug: Step Over" },

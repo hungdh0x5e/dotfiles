@@ -43,6 +43,15 @@ function fapp() {
   fi
 }
 
+# Switch tmux session
+function fsession() {
+  local session=$(tmux list-sessions | sed -E 's/:.*$//g' | grep -v "^$(tmux display-message -p '#S')" | fzf-tmux -p -w 40% -h 40%)
+
+  if [ -n "$session" ]; then
+    tmux switch-client -t $session
+  fi
+}
+
 _fzf_complete_git() {
     ARGS="$@"
     local branches
