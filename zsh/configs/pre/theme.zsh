@@ -1,9 +1,6 @@
 plugins=(
   git
   macos
-  ruby
-  git-flow
-  git-extras
   web-search
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -11,6 +8,7 @@ plugins=(
   kubectl
   docker
   docker-compose
+  colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh

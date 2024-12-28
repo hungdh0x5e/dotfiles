@@ -62,13 +62,6 @@ map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wid
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 
-map(
-  { "n", "v" },
-  "<leader>S",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word under cursor" }
-)
-
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer New" })
 map("n", "<leader>bv", "<cmd>vertical enew<CR>", { desc = "Buffer New Vertical" })
 map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Buffer Delete" })
@@ -86,7 +79,7 @@ map("n", "yff", function()
   local filename = vim.api.nvim_buf_get_name(0)
   vim.fn.setreg("+", filename)
   vim.notify("Copied " .. filename, vim.log.levels.INFO)
-end, { desc = "yanl file full path" })
+end, { desc = "yank file absolute path" })
 
 map("n", "yfr", function()
   local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:.")
@@ -110,5 +103,5 @@ map("t", "<C-w>", [[<C-\><C-n><C-w>]], {})
 -- Search and Replace
 -- 'c.' for word, 'c>' for WORD
 -- 'c.' in visual mode for selection
-map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "search and replace word under cursor" })
-map("n", "c>", [[:%s/\V<C-r><C-a>//g<Left><Left>]], { desc = "search and replace WORD under cursor" })
+map("n", "c.", [[:s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "search and replace word under cursor" })
+map("n", "c>", [[:s/\V<C-r><C-a>//g<Left><Left>]], { desc = "search and replace WORD under cursor" })

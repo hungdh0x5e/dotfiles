@@ -1,5 +1,0 @@
-#!/bin/sh
-# Base64 encode
-
-printf "%s" "$1" | base64
-

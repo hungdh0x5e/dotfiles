@@ -1,6 +1,6 @@
 return {
   {
-    dir = "~/dotfiles/nvim/plugins/gorun.nvim",
+    "hungdh9x/gorun.nvim",
     ft = "go",
     keys = {
       { "<leader>rc", "<CMD>GoRun<CR>", desc = "Go run configuration" },

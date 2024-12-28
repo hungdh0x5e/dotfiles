@@ -3,7 +3,6 @@
 # Open fzf in tmux popup
 function __fzfp() {
   fzf --height=50% --tmux 90%,70% \
-    --layout=reverse --multi --min-height=20 --border \
     --color='header:italic:underline,label:blue' \
     "$@"
 }
@@ -47,7 +46,7 @@ function sayhi() {
 
 # Lauch application
 function fapp() {
-  local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | __fzfp --prompt 'Applications❯ ' --no-multi )
+  local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | sort | __fzfp --prompt 'Applications❯ ' --no-multi )
   if [ -n "$app" ]; then
     open -a $app
   fi

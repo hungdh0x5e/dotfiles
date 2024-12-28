@@ -25,6 +25,7 @@ applications=(
     bat
     diffutils
     taplo
+    zoxide
 )
 
 for i in ${applications[@]} ; do

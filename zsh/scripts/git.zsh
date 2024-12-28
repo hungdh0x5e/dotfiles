@@ -5,7 +5,6 @@ root() {
   cd $(git rev-parse --show-toplevel)
 }
 
-unalias gcob
 gcob() {
   _fzf_git_branches --no-multi | xargs git checkout
 }

@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Base64 decode
-
-printf "%s" $1 | base64 --decode; echo

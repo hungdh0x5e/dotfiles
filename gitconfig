@@ -33,9 +33,6 @@
 [include]
   path = ~/.gitconfig.local
 
-[includeIf "gitdir:~/go/src/gitlab.id.vin/"]
-  path = ~/.gitconfig-work
-
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

@@ -2,17 +2,13 @@
 source ~/dotfiles/setup/functions.sh
 
 dotfiles=(
-  alacritty.toml
   aliases
   bin
-  fzf.zsh
   gitconfig
   gitmessage
   ideavimrc
   nvim
   p10k.zsh
-  psqlrc
-  rspec
   tmux.conf
   wezterm.lua
   yamlfmt.yaml

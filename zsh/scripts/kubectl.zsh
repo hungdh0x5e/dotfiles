@@ -1,7 +1,3 @@
-alias k='kubectl'
-alias kg='kubectl get'
-alias kgp='kubectl get pods'
-
 __pick_container() {
   containers=$(kubectl get pod $1 -o jsonpath='{.spec.containers[*].name}')
   if [ $(echo $containers | wc -w) -gt 1 ]; then
@@ -19,7 +15,7 @@ function kdes() {
     resouce_name="pod"
   fi
 
-  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp --no-multi --border-label "Description $resouce_name")
 
   if [ -n "$resource" ]; then
     kubectl describe ${resouce_name} ${resource}
@@ -29,14 +25,13 @@ function kdes() {
 function kdel() {
   resouce_name="$1"
   if [ -z $1 ]; then
-    resouce_name="pod"
+    resouce_name="pods"
   fi
 
-  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
-
-  if [ -n "$resource" ]; then
-    kubectl delete ${resouce_name} $resource
-  fi
+  kubectl get $resouce_name --no-headers \
+    | __fzfp --border-label "Delete $resouce_name" --exit-0 --nth=1 \
+    | awk '{print $1}' \
+    | xargs kubectl delete $resouce_name
 }
 
 function klf() {
@@ -45,7 +40,9 @@ function klf() {
     resouce_name="pod"
   fi
 
-  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  resource=$(kubectl get $resouce_name --no-headers \
+    | __fzfp --border-label "View log $resouce_name" --exit-0 --nth=1 \
+    | awk '{print $1}')
 
   if [ -n "$resource" ]; then
     container=$(__pick_container $resource)
@@ -84,7 +81,9 @@ function ksf() {
 }
 
 function kexe() {
-  pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  pod=$(kubectl get pods --no-headers \
+    | __fzfp --border-label "Execute pod" --exit-0 --nth=1 --no-multi \
+    | awk '{print $1}')
 
   if [ -z "$pod" ]; then
     return

@@ -24,12 +24,6 @@ alias zshsource="source ~/.zshrc"
 
 alias dotfiles='cd ~/dotfiles'
 
-alias dcu="docker-compose up"
-alias dcub="docker-compose up --build"
-alias dck="docker-compose kill"
-alias dcw="docker-compose exec web bash"
-alias dcb="docker-compose exec db bash"
-
 alias lg="lazygit"
 alias jq="gojq"
 alias yless="jless --yaml"
