@@ -34,13 +34,6 @@ alias lg="lazygit"
 alias jq="gojq"
 alias yless="jless --yaml"
 
-# For git
-alias gcob='git checkout $(git branch | fzf)'
-alias gcorb='git checkout --track $(git branch -r | fzf)'
-alias gbd='git branch -D $(git branch | fzf)'
-# Go to the root of a project (git root)
-alias root='cd $(git rev-parse --show-toplevel)'
-
 # This kills a process that slows down my Mac every once in a while...??
 alias killn="ps -ax | grep notifyd | head -1 | awk '{print \$1}' | sudo xargs kill"
 

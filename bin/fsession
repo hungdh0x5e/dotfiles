@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Switch tmux session
+function fsession() {
+  local currentSession=$(tmux display-message -p '#S')
+  local session=$(tmux list-sessions | sed -E 's/:.*$//g' | grep -v "^$currentSession\$" | fzf-tmux -p -w 40% -h 40% --select-1 --exit-0)
+
+  if [ -n "$session" ]; then
+    tmux switch-client -t $session
+  fi
+}
+
+fsession

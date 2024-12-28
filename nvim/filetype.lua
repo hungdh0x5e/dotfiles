@@ -6,6 +6,7 @@ vim.filetype.add {
     conf = "conf",
     env = "config",
     bru = "ruby",
+    zsh = "bash",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {
@@ -18,5 +19,6 @@ vim.filetype.add {
     -- INFO: Match filenames like - ".env.example", ".env.local" and so on
     ["%.env%.[%w_.-]+"] = "config",
     ["Dockerfile[%w_.-]+"] = "dockerfile",
+    ["gitconfig[%w_.-]*"] = "gitconfig",
   },
 }
