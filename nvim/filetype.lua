@@ -19,6 +19,6 @@ vim.filetype.add {
     -- INFO: Match filenames like - ".env.example", ".env.local" and so on
     ["%.env%.[%w_.-]+"] = "config",
     ["Dockerfile[%w_.-]+"] = "dockerfile",
-    ["%.gitconfig[%w_.-]*"] = "gitconfig",
+    [".*gitconfig.*"] = "gitconfig",
   },
 }
