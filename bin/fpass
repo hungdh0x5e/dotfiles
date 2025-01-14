@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+# Copy password from pass manager
+
+export GPG_TTY=$(tty)
+
+prefix=${PASSWORD_STORE_DIR:-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=$(printf '%s\n' "${password_files[@]}" | fzf --tmux 20%,40% --select-1 --exit-0 --no-multi)
+
+if [ -n "$password" ]; then
+    if [[ $password == *totp* ]]; then
+        pass otp "$password" | pbcopy
+    else
+        pass show -c "$password" >/dev/null
+    fi
+fi
+
